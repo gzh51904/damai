@@ -11,6 +11,7 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import './lib/dist/css/mui.css'
 import './lib/dist/css/icons-extra.css'
+// import './lib/bootstrap-dist/css/bootstrap.css'
 
 
 Vue.config.productionTip = false
