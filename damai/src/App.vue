@@ -1,8 +1,18 @@
 <template>
   <div id="app">
-		<h1>app.vue页面</h1>
+		<login></login>
   </div>
 </template>
+<script>
+
+import login from "./pages/login.vue";
+
+export default {
+  components:{
+    login,
+  }
+}
+</script>
 
 <style scoped>
 
