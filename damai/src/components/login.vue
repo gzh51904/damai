@@ -162,13 +162,13 @@ export default {
   outline: none;
   font-size: 0.186667rem;
 }
-.login-test-main{
-
+.login-test-main {
+  border-color: #e7e7e7;
 }
-.login-test-main .login-test{
-      height: .56rem;
-    outline: none;
-    font-size: .186667rem;
-    padding-left: .133333rem;
+.login-test-main .login-test {
+  height: 0.56rem;
+  outline: none;
+  font-size: 0.186667rem;
+  padding-left: 0.133333rem;
 }
 </style>
