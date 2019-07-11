@@ -86,11 +86,11 @@ export default {
 
 <style>
     .hof-top{
-        margin-bottom: .666667rem;
+        margin-top: .56rem;
     }
     .hof-head{
         position: relative;
-        height: 1.17rem;
+        height: .58667rem;
         font-weight: 700;
         padding-left: .48rem;
         font-size: .45333rem;
@@ -117,12 +117,12 @@ export default {
     .hof-scroll{
         position: relative;
         z-index: 1010;
-        height: 6.4rem;
+        height: 3.4rem;
         margin-left: .48rem;
         overflow: hidden;
     }
     .hof-list{
-        height: 6.8rem;
+        height: 3.6rem;
         overflow-x: scroll; 
         overflow-y: hidden;
         white-space: nowrap;
@@ -130,11 +130,11 @@ export default {
     .hof-item{
         display: inline-block;
         box-sizing: border-box;
-        width: 12.16rem;
-        padding: 0 .64rem;
+        width: 6.08rem;
+        padding: 0 .32rem;
         margin-right: .4rem;
-        border: .02666rem solid #eee;
-        border-radius: .16rem;
+        border: .013333rem solid #eee;
+        border-radius: .08rem;
         box-shadow: 0 0.08rem 0.4rem 0 rgba(0,0,0,.05);
     }
     .hof-item-head{
@@ -142,8 +142,8 @@ export default {
         align-items: center;
     }
     .hof-img{
-        width: 2.66666rem;
-        height: 2.66666rem;
+        width: 1.33333rem;
+        height: 1.33333rem;
         margin: .37333rem .24rem .37333rem 0;
         border-radius: 50%;
         background-size: cover;
@@ -156,24 +156,22 @@ export default {
     }
     .hof-name{
         font-size: .42667rem;
-        line-height: .42667rem;
         color: #111;
     }
     .hof-fans{
         font-size: .26667rem;
-        line-height: .26667rem;
         color: #888;
     }
     .hof-add{
         padding: 0 .24rem;
-        width: 3.04rem;
-        height: 1.4rem;
+        width: 1.52rem;
+        height: .69333rem;
         box-sizing: border-box;
-        line-height: 1.4rem;
+        line-height: .69333rem;
         font-size: .32rem;
         text-align: center;
         color: #ff1268;
-        border: .053rem solid #ff1268;
+        border: .026667rem solid #ff1268;
         border-radius: 1.33333rem;
     }
     .hof-show{

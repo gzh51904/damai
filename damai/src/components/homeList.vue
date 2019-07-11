@@ -84,8 +84,8 @@ ul,li{
 }
 .home-list .home-list-img {
   text-align: center;
-  width: 1.7rem;
-  height: 1.7rem;
+  width: .85333rem;
+  height: .85333rem;
   margin: 0 auto;
   display: block;
   background-size: auto 100%;
@@ -93,8 +93,8 @@ ul,li{
   background-repeat: no-repeat;
 }
 .home-list .home-list-title {
-  padding-top: 0.08rem;
-  font-size: 0.32rem;
+  padding-top: .08rem;
+  font-size: .32rem;
   color: #222;
 }
 </style>

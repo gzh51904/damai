@@ -27,6 +27,6 @@ export default {
 .banner-main{
     display: block;
     width: 100%;
-    height: 7.52rem;
+    height: 3.76rem;
 }
 </style>
