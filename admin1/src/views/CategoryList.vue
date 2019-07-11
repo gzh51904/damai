@@ -4,6 +4,7 @@
     <el-table :data="items">
       <el-table-column prop="_id" label="ID" width="260"></el-table-column>
       <el-table-column prop="name" label="门票名称"></el-table-column>
+      <el-table-column prop="logicAddress" label="举办城市" width="300"></el-table-column>
       <el-table-column prop="icon" label="图标">
         <template slot-scope="scope">
           <img :src="scope.row.icon" alt style="height:3rem;" />
