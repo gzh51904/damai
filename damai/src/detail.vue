@@ -43,18 +43,39 @@
         </div>
     </div>
     <!-- 点击时间信息栏弹出时间选项，并购买 -->
-    
-    <div class="detail-localtion-info">
-    
-        <div  class="location-left">
-            <p  class="location-left-city single-line">北京市 | 凯迪拉克中心</p>
-            <p  class="location-left-address single-line">北京海淀区复兴路69号</p>
+    <div class="time-buy-info">
+        <p> <span></span></p>
+        <div class="time-info">
+            <h4>场次<span>场次时间均为演出当地时间</span></h4>
+            <mt-button type="danger" size="large" style="background:pink; color:red">2019-08-04 周日 19：00</mt-button>
         </div>
-        <div  class="location-right">
-            <div  class="location-right-icon"></div>
+        <div class="ticket-level">
+            <h4>票档</h4>
+            <div class="ticket-btn">
+                <!-- &nbsp;&nbsp; -->
+            <mt-button type="primary" style="background:#F5F5F5; margin-bottom:15px; margin-left:10px;" >看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
+            <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;580</mt-button>&nbsp;&nbsp;&nbsp;
+            <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;880</mt-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mt-button type="danger" style="background:#F5F5F5; margin-left:10px;">看台1280</mt-button>&nbsp;&nbsp;&nbsp;
+            <mt-button type="danger" style="background:#F5F5F5;">看台1680</mt-button>&nbsp;&nbsp;&nbsp;
+            <mt-button type="danger" style="background:#F5F5F5;">场地2019</mt-button>
+            
+
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-localtion-info">
+
+        <div class="location-left">
+            <p class="location-left-city single-line">北京市 | 凯迪拉克中心</p>
+            <p class="location-left-address single-line">北京海淀区复兴路69号</p>
+        </div>
+        <div class="location-right">
+            <div class="location-right-icon"></div>
             <!---->
         </div>
-    
+
     </div>
 </div>
 </template>
@@ -89,8 +110,8 @@
 
 /*---- 左边图片 ----*/
 .pic_l {
-    position: relative;
-    z-index: 10;
+    /* position: relative;
+    z-index: 10; */
     height: 4.291667rem;
     width: 3.166667rem;
 }
@@ -103,8 +124,8 @@
 }
 
 .text_r {
-    position: relative;
-    z-index: 10.388889rem;
+    /* position: relative;
+    z-index: 10; */
     margin-left: .377778rem;
     display: flex;
     flex-direction: column;
@@ -268,10 +289,66 @@
     width: 2.480556rem;
     font-size: .416667rem;
 }
-/* 时间弹出信息 */
 
+/* --------时间弹出购买信息 ----*/
+.time-buy-info {
+    padding: .208333rem;
+    /* display: none; */
+
+    height: 7.361111rem;
+    width: 100%;
+    background-color: white;
+}
+
+.time-buy-info p {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 1.15rem;
+
+    width: 100%;
+
+}
+
+.time-buy-info p span {
+    position: absolute;
+    right: 0;
+    /* border:.027778rem solid red; */
+    text-align: right;
+    display: inline-block;
+    height: .25rem;
+    width: 1.319444rem;
+    background: url(img/cha1.png) no-repeat 15px center;
+
+}
+.time-info{
+    margin-bottom: .48rem;
+
+}
+.time-info h4 span {
+    margin-bottom: .48rem;
+
+    margin-left: .277778rem;
+    font-size: .25rem;
+    color: #ccc;
+}
+.ticket-btn{
+    /* margin-left: .277778rem; */
+
+    height: 1.597222rem;
+    /* width: 5.152778rem; */
+     /* display: flex;
+     flex:wrap;
+     justify-content:space-between; */
+}
+.ticket-level h4{
+     height: .833333rem;
+     line-height:.877778rem;
+margin-top: .277778rem;
+margin-bottom: .277778rem;
+}
 /* 地理位置信息 */
-.detail-localtion-info{
+.detail-localtion-info {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -287,11 +364,12 @@
     justify-content: space-between;
     padding-top: .48rem;
     padding-bottom: .48rem;
-     padding-left: .4rem;
-     padding-right: .4rem;
-    background:white;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    background: white;
 }
-.location-left{
+
+.location-left {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -304,23 +382,27 @@
     flex: 1;
     border-right: 1px solid #eee;
 }
+
 .location-left-city {
-font-size: .42667rem;
+    font-size: .42667rem;
     color: #000;
     font-weight: 700;
 }
-.single-line{
+
+.single-line {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
+
 .location-left-address {
     font-size: .34667rem;
     color: #999;
     margin-top: .24rem;
 }
+
 .location-right {
     display: -webkit-box;
     display: -webkit-flex;
@@ -334,13 +416,13 @@ font-size: .42667rem;
     align-items: flex-end;
     padding-left: .4rem;
 }
+
 .location-right-icon {
     width: .53333rem;
     height: .53333rem;
     background: url(img/location.jpg) no-repeat right;
     background-size: contain;
-        border-radius:1.138889rem;
+    border-radius: 1.138889rem;
 
 }
-
 </style>
