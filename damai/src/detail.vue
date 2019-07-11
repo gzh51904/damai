@@ -52,39 +52,172 @@
         <div class="ticket-level">
             <h4>票档</h4>
             <div class="ticket-btn">
-                <!-- &nbsp;&nbsp; -->
-            <mt-button type="primary" style="background:#F5F5F5; margin-bottom:15px; margin-left:10px;" >看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
-            <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;580</mt-button>&nbsp;&nbsp;&nbsp;
-            <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;880</mt-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <mt-button type="danger" style="background:#F5F5F5; margin-left:10px;">看台1280</mt-button>&nbsp;&nbsp;&nbsp;
-            <mt-button type="danger" style="background:#F5F5F5;">看台1680</mt-button>&nbsp;&nbsp;&nbsp;
-            <mt-button type="danger" style="background:#F5F5F5;">场地2019</mt-button>
-            
-
+                <mt-button type="primary" style="background:#F5F5F5; margin-bottom:15px; margin-left:10px;">看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;580</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;880</mt-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#F5F5F5; margin-left:10px;">看台1280</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#F5F5F5;">看台1680</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#F5F5F5;">场地2019</mt-button>
             </div>
         </div>
+
+        <div class="sku-bottom">
+            <!---->
+            <div class="buy-number">
+                <div class="buy-number-edit">
+                    <div class="title">
+                        购买数量
+                    </div>
+                    <div class="number-edit">
+                        <div class="number-edit-bg unable disable">-</div>
+                        <div class="number">1</div>
+                        <div class="number-edit-bg enable">+</div>
+                    </div>
+                </div>
+                <div class="buy-number-tips"><span class="left-tips"></span>
+                    <div class="limit-info">
+                        每笔订单限购4张
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="price-button">
+                <div class="price-container">
+                    <div class="price-top"><span class="price-text">￥880</span>
+                        <!---->
+                        <!---->
+                    </div>
+                    <!---->
+                </div>
+                <div class="button button common normal">
+                    确定
+                </div>
+            </div>
+            <!---->
+        </div>
+
     </div>
 
     <div class="detail-localtion-info">
-
         <div class="location-left">
             <p class="location-left-city single-line">北京市 | 凯迪拉克中心</p>
             <p class="location-left-address single-line">北京海淀区复兴路69号</p>
         </div>
         <div class="location-right">
             <div class="location-right-icon"></div>
-            <!---->
         </div>
-
     </div>
+    <div class="nav-info" style="background:#fff; margin-top:15px;">
+        <mt-navbar v-model="selected" style="display:flex;
+        justify-content: space-around;
+        align-items:center;
+        font-size: .47333rem;
+        font-weight: 700; height:54px">
+            <mt-tab-item id="1" style="color:#111;">详情</mt-tab-item>
+            <mt-tab-item id="2" style="color:#111;">须知</mt-tab-item>
+            <mt-tab-item id="3" style="color:#111;">推荐</mt-tab-item>
+        </mt-navbar>
+
+        <!-- tab-container -->
+        <mt-tab-container v-model="selected" style="height:100%">
+            <mt-tab-container-item id="1">
+
+                <information></information>
+
+            </mt-tab-container-item>
+            <mt-tab-container-item id="2">
+                hafiuhfaighagsgsfd3423
+                <attention></attention>
+                <!-- <mt-cell v-for="n in 4" :title="'content ' + n" /> -->
+            </mt-tab-container-item>
+            <mt-tab-container-item id="3">
+                34546t45y hfaiubviasjubv
+                <recommend></recommend>
+                <!-- <mt-cell v-for="n in 6" :title="'content ' + n" /> -->
+            </mt-tab-container-item>
+        </mt-tab-container>
+    </div>
+    <div data-v-5dfd96bd="" class="bottom">
+        <div data-v-d0cc7b08="" data-v-5dfd96bd="" class="detail-bar">
+            <!---->
+            <div data-v-d0cc7b08="" class="button-outline">
+                <div data-v-d0cc7b08="" class="left"><i data-v-d0cc7b08="" class="left__icon2 icon-home"></i>
+                    <p data-v-d0cc7b08="" class="left__msg">大麦首页</p>
+                </div>
+                <div data-v-d0cc7b08="" class="left"><i data-v-d0cc7b08="" class="left__icon left__icon-disfavor"></i>
+                    <p data-v-d0cc7b08="" class="left__msg">想看</p>
+                </div>
+                <!---->
+                <div data-v-d0cc7b08="" class="detail-button">
+                    <div data-v-3be445e2="" data-v-d0cc7b08="" class="button button-primary">
+                        <div data-v-d0cc7b08="" data-v-3be445e2="" class="buy">
+                            <!---->
+                            <div data-v-d0cc7b08="" data-v-3be445e2="" class="buy__button">
+                                <p data-v-d0cc7b08="" data-v-3be445e2="" class="buy__button__text">立即购买</p>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <!---->
+            <!---->
+            <div data-v-d0cc7b08="" class="dm-dialog point-auth" style="display: none;">
+                <div class="dm-dialog__box">
+                    <!---->
+                    <div class="dm-dialog__bd">
+                        由于未获得您的支付宝积分授权，本次交易无法享受支付宝积分优惠。
+                    </div>
+                    <div class="dm-dialog__ft">
+                        <!---->
+                        <div class="dm-dialog__confirm"><span class="dm-dialog__ft__item dm-dialog__confirm_cancel">确定</span> <span class="dm-dialog__ft__item dm-dialog__confirm_true">重新授权</span></div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-d0cc7b08="" class="dm-dialog point-auth" style="display: none;">
+                <div class="dm-dialog__box">
+                    <!---->
+                    <div class="dm-dialog__bd">
+                        抱歉，您当前剩余支付宝积分或等级暂不满足享受积分优惠的条件。
+                    </div>
+                    <div class="dm-dialog__ft"><span class="dm-dialog__ft__item">知道了</span>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 </template>
 
 <script>
+// 引入
+import information from './components/information.vue';
+import attention from './components/attention.vue';
+import recommend from './components/recommend.vue';
+export default {
+    data() {
+        return {
 
+        }
+    },
+    // 注册
+    components: {
+        information,
+        attention,
+        recommend
+    }
+}
 </script>
 
 <style scoped>
+#app {
+    /* height: 100%; */
+    /* overflow-y: scroll; */
+}
+
 /* -------最顶部  ---- */
 .box {
     width: 100%;
@@ -110,8 +243,7 @@
 
 /*---- 左边图片 ----*/
 .pic_l {
-    /* position: relative;
-    z-index: 10; */
+
     height: 4.291667rem;
     width: 3.166667rem;
 }
@@ -124,8 +256,7 @@
 }
 
 .text_r {
-    /* position: relative;
-    z-index: 10; */
+
     margin-left: .377778rem;
     display: flex;
     flex-direction: column;
@@ -293,9 +424,9 @@
 /* --------时间弹出购买信息 ----*/
 .time-buy-info {
     padding: .208333rem;
-    /* display: none; */
+    display: none;
 
-    height: 7.361111rem;
+    height: 13.361111rem;
     width: 100%;
     background-color: white;
 }
@@ -321,33 +452,246 @@
     background: url(img/cha1.png) no-repeat 15px center;
 
 }
-.time-info{
+
+.time-info {
     margin-bottom: .48rem;
 
 }
+
 .time-info h4 span {
     margin-bottom: .48rem;
-
     margin-left: .277778rem;
     font-size: .25rem;
     color: #ccc;
 }
-.ticket-btn{
-    /* margin-left: .277778rem; */
 
+.ticket-btn {
     height: 1.597222rem;
-    /* width: 5.152778rem; */
-     /* display: flex;
-     flex:wrap;
-     justify-content:space-between; */
 }
-.ticket-level h4{
-     height: .833333rem;
-     line-height:.877778rem;
-margin-top: .277778rem;
-margin-bottom: .277778rem;
+
+.ticket-level {
+    /* height: 100%; */
+    height: 3.597222rem;
+    padding-bottom: 5.277778rem;
+    border-bottom: .027778rem solid #ccc;
+
 }
-/* 地理位置信息 */
+
+.ticket-level h4 {
+    height: .833333rem;
+    line-height: .877778rem;
+    margin-top: .277778rem;
+    margin-bottom: .277778rem;
+}
+
+.sku-bottom {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 -0.04rem 0.24rem 0 rgba(0, 0, 0, .06);
+}
+
+.sku-bottom,
+.sku-content {
+    position: relative;
+    width: 100%;
+}
+
+.buy-number .buy-number-edit,
+.buy-number {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+}
+
+.buy-number {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding-top: .56rem;
+    padding-bottom: .42667rem;
+    border-bottom: 1px solid #eee;
+}
+
+.buy-number .buy-number-edit {
+    position: relative;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    margin: 0 .48rem;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-bottom: .26667rem;
+}
+
+.buy-number .title {
+    font-size: .42667rem;
+    color: #000;
+    line-height: .42667rem;
+    font-weight: 700;
+}
+
+.buy-number .number-edit {
+    position: absolute;
+    right: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.buy-number .number-edit .disable {
+    color: #ccc;
+}
+
+.buy-number .number-edit .number-edit-bg {
+    background-color: #f5f5f5;
+    width: .66667rem;
+}
+
+.buy-number .number-edit .number-edit-bg,
+.buy-number .number-edit .number {
+    height: .66667rem;
+    font-size: .42667rem;
+    text-align: center;
+    line-height: .66667rem;
+}
+
+.buy-number .number-edit .number {
+    width: 1.33333rem;
+    color: #000;
+}
+
+.buy-number .number-edit .enable {
+    color: #666;
+}
+
+.buy-number .buy-number-tips {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-left: .48rem;
+    margin-right: .48rem;
+}
+
+.buy-number .buy-number-tips .left-tips,
+.buy-number .buy-number-tips .limit-info {
+    font-size: .34667rem;
+    color: #999;
+    line-height: .34667rem;
+}
+
+.price-button {
+    width: 100%;
+    height: 1.6rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.price-container,
+.price-top {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+}
+
+.price-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin-left: .32rem;
+    margin-right: .26667rem;
+}
+
+.price-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.button {
+    width: 4.26667rem;
+}
+
+.normal {
+    opacity: 1;
+}
+
+.common {
+    background-image: -webkit-linear-gradient(left, #ff7f81, #ff2d79);
+    background-image: linear-gradient(90deg, #ff7f81, #ff2d79);
+}
+
+.button {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 1.17333rem;
+    border-radius: .58667rem;
+    font-size: .42667rem;
+    color: #fff;
+    line-height: 1.17333rem;
+    text-align: center;
+    margin-left: .4rem;
+    margin-right: .4rem;
+    opacity: 1;
+}
+
+.ticket-buy {
+    height: 1.597222rem;
+    width: 5.152778rem;
+    border-bottom: .027778rem solid red;
+
+}
+
+/*----- 地理位置信息------ */
 .detail-localtion-info {
     display: -webkit-box;
     display: -webkit-flex;
