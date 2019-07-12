@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import axios from 'axios'
+Vue.prototype.$axios = axios;
+// axios.defaults.baseURL = 'http://localhost:9001/admin/api/rest/categories';
 
 //整体引入了mint-ui和mui-ui
 import MintUI from 'mint-ui'
