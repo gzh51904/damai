@@ -18,7 +18,7 @@ export default {
         }
     },
     beforeUpdated(){
-        // Axios.get('',)
+        this.$axios.get("")
     }
 };
 </script>
@@ -28,5 +28,6 @@ export default {
     display: block;
     width: 100%;
     height: 3.76rem;
+    margin-top: 1.333333rem;
 }
 </style>

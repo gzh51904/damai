@@ -4,37 +4,57 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import Login from "./components/login.vue";
-import Reg from "./components/register.vue";
-import Mine from "./components/mine.vue";
-import Banner from "./components/banner.vue";
+import login from "./components/login/login.vue";
+import register from "./components/register/register.vue";
+import mine from "./components/mine/mine.vue";
+import homesearch from "./components/home/homesearch.vue";
+import home from "./components/home/home.vue";
+import city from "./components/home/city.vue";
 
 
 
 export default new Router({
-  routes: [   
-      
+  routes: [
+      {
+        name:"city",
+        path:"/city",
+        component:city,
+      },
+      {
+        path:"/",
+        redirect:"/home",
+      },
+      {
+        name:"home",
+        path:"/home",
+        component:home,
+        children:[
+
+        ]
+      }  
+      , 
+      {
+        name:"search",
+        path:"/search",
+        component:homesearch,
+      },
+
       {
         name:"mine",
         path:"/mine",
-        component:Mine,
+        component:mine,
         children:[
           {
             name:"login",
             path:"login",
-            component:Login,
+            component:login,
           },
           {
             name:"register",
             path:"register",
-            component:Reg,
-          },
+            component:register,
+          }
         ]
       },
-      {
-        name:"banner",
-        path:"/banner",
-        component:Banner,
-      }
   ]
 })

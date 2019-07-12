@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="login">
       <div class="login-logo">
-        <img src="../assets/login-logo.png" alt="">
+        <img src="../../assets/login-logo.png" alt="">
       </div>
       <form class="mui-input-group">
           <div class="login-tel">

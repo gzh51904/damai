@@ -154,7 +154,7 @@ export default {
         overflow-x: scroll;
     }
     .show-week-img{
-        background-image: url("../assets/loading.png");
+        background-image: url("../../assets/loading.png");
         background-size: contain;
         background-repeat: no-repeat;
         display: inline-block;

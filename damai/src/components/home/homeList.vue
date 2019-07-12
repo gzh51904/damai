@@ -16,27 +16,27 @@ export default {
     return {
       list: [
         {
-          imgurl: "../assets/home-list1.jpg",
+          imgurl: "../../assets/home-list1.jpg",
           title: "演唱会",
           path: ""
         },
         {
-          imgurl: "../assets/home-list2.jpg",
+          imgurl: "../../assets/home-list2.jpg",
           title: "话剧歌剧",
           path: ""
         },
         {
-          imgurl: "../assets/logo.png",
+          imgurl: "../../assets/logo.png",
           title: "音乐会",
           path: ""
         },
         {
-          imgurl: "../assets/home-list2.jpg",
+          imgurl: "../../assets/home-list2.jpg",
           title: "体育",
           path: ""
         },
         {
-          imgurl: "../assets/home-list1.jpg",
+          imgurl: "../../assets/home-list1.jpg",
           title: "曲苑杂坛",
           path: ""
         },
@@ -46,12 +46,12 @@ export default {
           path: ""
         },
         {
-          imgurl: "../assets/home-list1.jpg",
+          imgurl: "../../assets/home-list1.jpg",
           title: "展览休闲",
           path: ""
         },
         {
-          imgurl: "../assets/home-list2.jpg",
+          imgurl: "../../assets/home-list2.jpg",
           title: "境外",
           path: ""
         }
@@ -60,7 +60,7 @@ export default {
     }
   },
   mounted(){
-      this.imgurl = require('../assets/home-list1.jpg');
+      this.imgurl = require('../../assets/home-list1.jpg');
   }
 };
 </script>
