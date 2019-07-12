@@ -35,7 +35,8 @@ export default {
         logicAddress: "",
         price: "",
         venueName: "",
-        button: ""
+        button: "",
+        username: ""
       }
     };
   },
