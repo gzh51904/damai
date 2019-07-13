@@ -75,7 +75,7 @@
                     </div>
                     
                 </div>
-                <div class="button button common normal" @click="links">
+                <div class="button button common normal" >
                     确定
                 </div>
             </div>
@@ -182,9 +182,9 @@ export default {
         hide1(){
             this.msg1=false;
         }
-        links(){
+        // links(){
 
-        }
+        // }
     },
 }
 </script>
