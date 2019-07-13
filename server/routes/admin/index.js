@@ -100,6 +100,55 @@ module.exports = (app) => {
 		})
 	})
 
+	//注册
+	app.post('/admin/api/reg', async (req, res) => {
+		const User = require('../../model/User')
+		const user = await User.create({
+			username: req.body.username,
+			password: req.body.password
+		})
+		res.send({
+			msg: "注册成功"
+		});
+	});
+
+	//登录
+	app.post("/admin/api/deng", async (req, res) => {
+
+		const User = require('../../model/User')
+		const user = await User.findOne({
+			username: req.body.username
+		})
+		if (!user) {
+			return res.send({
+				msg: "用户名不存在"
+			})
+		}
+		const ispasswordVaild = require('bcrypt').compareSync(
+			req.body.password,
+			user.password
+		)
+		if (!ispasswordVaild) {
+			return res.send({
+				msg: "密码错误"
+			})
+		}
+		const jwt = require('jsonwebtoken')
+		const token = jwt.sign({
+			id: user._id
+		}, app.get('secret'))
+
+		res.send({
+			msg: "success",
+			token
+		});
+	});
+
+
+
+
+
+
 	app.use(async (err, req, res, next) => {
 		res.status(err.statusCode || 500).send({
 			message: err.message
