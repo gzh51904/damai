@@ -95,7 +95,7 @@ export default {
       cityC: [{ name: "长春" }, { name: "长沙" }, { name: "常德" }],
       cityD: [{ name: "安庆" }, { name: "安庆" }, { name: "安庆" }],
       cityE: [{ name: "安庆" }, { name: "安庆" }, { name: "安庆" }],
-      selectcolor: "全国"
+      selectcolor: "广州"
     };
   },
   methods: {

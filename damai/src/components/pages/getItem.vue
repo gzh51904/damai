@@ -2,14 +2,12 @@
   <div>
     <ul class="getcityandtime">
       <li @click="showthecity('city')">
-        城市
+        广州
         <span></span>
       </li>
       <li @click="showthecity('time')" class="timepick">
-        <!-- 时间-->
-        <el-date-picker type="date" placeholder="时间" class="popper-class">
-          <span></span>
-        </el-date-picker>
+        时间
+        <span></span>
       </li>
       <li @click="showthecity('best')">
         推荐排序
@@ -23,6 +21,9 @@
     <div class="showallcity">
       <getcity v-if="cityactive"></getcity>
 
+      <div class="tofixed">
+        <gettime v-if="timeactive"></gettime>
+      </div>
       <getbest v-if="bestactive"></getbest>
 
       <getdingwei v-if="lanchactive"></getdingwei>
@@ -34,39 +35,77 @@
 import getcity from "./getcity.vue";
 import getdingwei from "./getDingWei.vue";
 import getbest from "./getBest.vue";
+import gettime from "./gittime.vue";
 export default {
   data() {
     return {
       cityactive: false,
       bestactive: false,
-      lanchactive: false
+      lanchactive: false,
+      timeactive: false
     };
   },
   methods: {
     showthecity(name) {
+      document.documentElement.scrollTop = 0;
+      //城市切换
       if (name == "city") {
         this.cityactive = !this.cityactive;
+
+        console.log(document.documentElement.scrollTop);
+
         if (this.bestactive == true) {
           this.bestactive = !this.bestactive;
         }
         if (this.lanchactive == true) {
           this.lanchactive = !this.lanchactive;
         }
-      } else if (name == "best") {
+        if (this.timeactive == true) {
+          this.timeactive = !this.timeactive;
+        }
+      }
+      // 推荐排序切换
+      else if (name == "best") {
         this.bestactive = !this.bestactive;
+
         if (this.cityactive == true) {
           this.cityactive = !this.cityactive;
         }
         if (this.lanchactive == true) {
           this.lanchactive = !this.lanchactive;
         }
-      } else if (name == "lanch") {
+        if (this.timeactive == true) {
+          this.timeactive = !this.timeactive;
+        }
+      }
+      //定位切换
+      else if (name == "lanch") {
         this.lanchactive = !this.lanchactive;
+
         if (this.bestactive == true) {
           this.bestactive = !this.bestactive;
         }
         if (this.cityactive == true) {
           this.cityactive = !this.cityactive;
+        }
+
+        if (this.timeactive == true) {
+          this.timeactive = !this.timeactive;
+        }
+      }
+
+      // 时间切换
+      else if (name == "time") {
+        this.timeactive = !this.timeactive;
+
+        if (this.bestactive == true) {
+          this.bestactive = !this.bestactive;
+        }
+        if (this.cityactive == true) {
+          this.cityactive = !this.cityactive;
+        }
+        if (this.lanchactive == true) {
+          this.lanchactive = !this.lanchactive;
         }
       }
     }
@@ -74,12 +113,18 @@ export default {
   components: {
     getcity,
     getdingwei,
-    getbest
+    getbest,
+    gettime
   }
 };
 </script>
 
 <style scoped>
+.tofixed {
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+}
 .getcityandtime {
   background-color: #d1d1d1;
   display: flex;
@@ -110,6 +155,7 @@ export default {
   overflow: auto;
   z-index: 100;
   top: 48px;
+  background-color: #ffffff;
 }
 .timepick {
   /* width: 2.5rem !important;

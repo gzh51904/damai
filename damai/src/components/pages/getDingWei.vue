@@ -1,12 +1,11 @@
 <template>
   <div class="citybox">
     <div>
-      <div class="onecity">
-        <ul>
-          <li class="box-li" v-for="item in changeBest" :key="item.name">{{item.title}}</li>
-        </ul>
-        <div class="black"></div>
+      <div class="dingwei">
+        <div class="box-div">定位城市</div>
+        <span class="box-span">无法定位到城市</span>
       </div>
+      <div class="black"></div>
     </div>
   </div>
 </template>
@@ -14,34 +13,23 @@
 <script>
 export default {
   data() {
-    return {
-      changeBest: [
-        {
-          title: "推荐排序"
-        },
-        {
-          title: "最新上架"
-        },
-        {
-          title: "最近开场"
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
 
 <style  scoped>
+.dingwei {
+  background-color: #ffffff;
+}
 .citybox {
   width: 100%;
   height: 100%;
-  position: relative;
+  position: fixed;
   overflow: auto;
   flex-direction: column;
 }
-.onecity ul {
-  background-color: #ffffff;
-}
+
 .box-span {
   display: inline-block;
   width: 2.805556rem;
@@ -71,8 +59,8 @@ export default {
 }
 .black {
   background-color: rgb(110, 110, 110);
-  height: 428px;
+  height: 484px;
   width: 100%;
-  opacity: 0.4;
+  opacity: 0.6;
 }
 </style>
