@@ -23,6 +23,7 @@ import './lib/dist/js/rem'
 
 import './assets/js/rem'
 import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 
