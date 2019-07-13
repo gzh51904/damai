@@ -8,9 +8,14 @@
       <div class="s-div-class02">
         <div class="send-center">下单后预计3-5个工作日进行配送</div>
       </div>
-      <div class="s-div-class03">
-        <div class="send-center-01">
+      <div class="s-div-class03" @click="NewAddress">
+        <!-- 无地址时显示新增收货地址 -->
+        <div class="send-center-01" v-if="udlen">
           <span class="s-01">新增收货地址</span>
+        </div>
+        <!-- 有地址时显示具体地址 -->
+        <div class="s-div-class03" v-else>
+          <resolveinfo></resolveinfo>
         </div>
         <span class="s-02">
           <i class="el-icon-arrow-right arrow-r"></i>
@@ -25,11 +30,45 @@
         <span>如需发票,请支付完成后在订单页面索取(发票金额仅限商品金额,所有配送费用暂时无法开具发票)</span>
       </div>
     </div>
+    <div>
+      <addaddress :showNewAddress.sync="showNewAddress" v-if="showNewAddress"></addaddress>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import resolveinfo from "./resolveinfo.vue";
+import addaddress from "./addaddress.vue";
+export default {
+  data() {
+    return {
+      userAddressLIst: "",
+      showaddress: true,
+      showNewAddress: false,
+      udlen: false
+    };
+  },
+
+  components: {
+    resolveinfo,
+    addaddress
+  },
+  methods: {
+    NewAddress() {
+      this.showNewAddress = true;
+    }
+  },
+  created() {
+    let { commit, state } = this.$store;
+    let adlist = state.userAddress;
+
+    adlist.forEach(element => {
+      if (element.selecred) {
+        this.userAddressLIst = element;
+      }
+    });
+  }
+};
 </script>
 
 <style scoped>

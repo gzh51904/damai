@@ -7,12 +7,12 @@
         <li class="li03">上海 | 上汽上海文化广场</li>
       </div>
       <div class="t-info-right">
-        <img src="../assets/img/goods01.jpg" alt srcset class="right-img" />
+        <img src="../../assets/img/goods01.jpg" alt srcset class="right-img" />
       </div>
     </div>
     <div class="t-xuanzuo">
       <div class="xuzhi">
-        <span class="xuzhi-t">购票须知</span>
+        <span class="xuzhi-t" @click="showyoukonw">购票须知</span>
         <span class="xuzhi-b">
           <i class="el-icon-arrow-right iconarr"></i>
         </span>
@@ -22,13 +22,30 @@
       <div class="xuan1">1张</div>
       <div class="xuan2">48排21号</div>
     </div>
+    <div>
+      <youmustknow v-if="isshowyoukonw" v-bind:isshowyoukonw.sync="isshowyoukonw"></youmustknow>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
+<script >
 import Vue from "vue";
-
-export default Vue.extend({});
+import youmustknow from "./youmustknow.vue";
+export default {
+  data() {
+    return {
+      isshowyoukonw: false
+    };
+  },
+  methods: {
+    showyoukonw() {
+      this.isshowyoukonw = true;
+    }
+  },
+  components: {
+    youmustknow
+  }
+};
 </script>
 
 <style scoped>

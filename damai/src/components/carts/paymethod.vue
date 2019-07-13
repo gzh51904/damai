@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="dmpaytypecontant-list">
-      <img src="../assets/img/TB1.png" alt class="pay-img" />
+      <img src="../../assets/img/TB1.png" alt class="pay-img" />
       <div class="dmpaytypecontant-list-decs">支付宝</div>
       <div class="pay-check">
         <i class="el-icon-circle-check change-icon"></i>
