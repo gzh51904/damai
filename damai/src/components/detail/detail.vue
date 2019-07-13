@@ -75,7 +75,7 @@
                     </div>
                     
                 </div>
-                <div class="button button common normal">
+                <div class="button button common normal" >
                     确定
                 </div>
             </div>
@@ -160,8 +160,8 @@ export default {
 
     data(){
        return {
-msg:false,
-msg1:false,
+        msg:false,
+        msg1:false,
        } 
     },
     // 注册
@@ -182,6 +182,9 @@ msg1:false,
         hide1(){
             this.msg1=false;
         }
+        // links(){
+
+        // }
     },
 }
 </script>

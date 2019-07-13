@@ -42,6 +42,7 @@ export default new Router({
         component:homesearch,
       },
 
+<<<<<<< HEAD
       {
         name:"mine",
         path:"/mine",
@@ -62,5 +63,8 @@ export default new Router({
         path: '/goodslist',
         component: goodsList,
       }     
+=======
+
+>>>>>>> ljf
   ]
 })
