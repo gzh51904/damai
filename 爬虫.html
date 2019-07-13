@@ -192,12 +192,17 @@
           $.ajax({
             type: "POST",
             data: aaa,
+            // data: { username: "zs11d", password: 121323 },
             dataType: "json",
             url: "http://localhost:9001/admin/api/rest/categories",
+            // url: "http://localhost:9001/admin/api/reg",
             success(res) {
               console.log(res);
               console.log("1");
             }
+            // error(res) {
+            //   console.log(res.status);
+            // }
           });
         }
       });
