@@ -2,7 +2,7 @@
     <div class="mine">
         <div class="mine-hd">
             <div class="mine-pic"></div>
-            <p class="mine-name">登录/注册</p>
+            <p class="mine-name" @click="goto('/login')">登录/注册</p>
         </div>
         <div class="mine-content">
             <ul class="mine-top">
@@ -101,6 +101,11 @@ export default {
             index:5,
         }]
     };
+  },
+  methods:{
+      goto(val){
+          this.$router.push(val);
+      }
   }
 };
 </script>
@@ -141,6 +146,7 @@ export default {
         background-position: top center;
         border-radius: 100%;
         border: .04rem solid #fff;
+        background: url("../../assets/mine-hd.png");
     }
     .mine-name{
     flex: 1;

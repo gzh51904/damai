@@ -43,18 +43,16 @@ export default new Router({
         name:"mine",
         path:"/mine",
         component:mine,
-        children:[
-          {
-            name:"login",
-            path:"login",
-            component:login,
-          },
-          {
-            name:"register",
-            path:"register",
-            component:register,
-          }
-        ]
+      }, 
+      {
+        name:"login",
+        path:"/login",
+        component:login,
       },
+      {
+        name:"register",
+        path:"/register",
+        component:register,
+      }      
   ]
 })

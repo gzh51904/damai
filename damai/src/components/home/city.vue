@@ -10,12 +10,12 @@
             <div class="city-hot">
                 <div class="city-hot-title city-title">热门城市/区域</div>
                 <ul class="city-hotbox">
-                    <li class="city-hotname  city-smallbox" v-for="(item,i) in hotcityname" :key="i">{{item}}</li>
+                    <li @click="chosecity(item)" class="city-hotname  city-smallbox" v-for="(item,i) in hotcityname" :key="i">{{item}}</li>
                 </ul>
             </div>
             <ul class="city-all" v-for="(itembig,imba,name) in letter" :key="name">
                 <li class="city-title">{{imba}}</li>
-                <li v-for="(itemsmall,i) in itembig" :key="i" class="city-all-list">{{itemsmall}}</li>
+                <li @click="chosecity(itemsmall)" v-for="(itemsmall,i) in itembig" :key="i" class="city-all-list">{{itemsmall}}</li>
             </ul>
         </div>
     </div>
@@ -32,6 +32,11 @@ export default {
                 B:["巴彦绰尔","保定","包头","北海","北京","本溪","蚌埠","滨州"],
                 C:["长春","长沙","常州","承德","成都","赤峰","重庆"],
             },
+        }
+    },
+    methods:{
+        chosecity(val){
+            console.log(val);
         }
     },
     created(){
@@ -53,7 +58,6 @@ export default {
         position: relative;
         font-size: .34667rem;
         color: #333;
-        margin-top: 1.4rem;
     }
     .city-content{
         width: 100%;
@@ -77,7 +81,7 @@ export default {
         height: .96rem;
         text-align: center;
         line-height: .96rem;
-        border: .013333rem solid #e7e7e7;
+        border: 1px solid #e7e7e7;
         border-radius: .08rem;
         margin: .21333rem 0 .21333rem .4rem;
     }

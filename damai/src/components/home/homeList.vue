@@ -3,7 +3,7 @@
         <ul class="home-list">
             <li v-for="(item,i) in list" :key="i" class="home-list-pre">
                 <!-- <span :style="{'background-image':'url(' + item.imgurl + ')'}" class="home-list-img"></span> -->
-                <img :src="imgurl" class="home-list-img">
+                <img :src="item.imgurl" class="home-list-img">
                 <p class="home-list-title">{{item.title}}</p>
             </li>
         </ul>
@@ -16,51 +16,64 @@ export default {
     return {
       list: [
         {
-          imgurl: "../../assets/home-list1.jpg",
+          imgurl: "/home-list1.jpg",
           title: "演唱会",
           path: ""
         },
         {
-          imgurl: "../../assets/home-list2.jpg",
+          imgurl: "/home-list2.jpg",
           title: "话剧歌剧",
           path: ""
         },
         {
-          imgurl: "../../assets/logo.png",
+          imgurl: "/home-list1.jpg",
           title: "音乐会",
           path: ""
         },
         {
-          imgurl: "../../assets/home-list2.jpg",
+          imgurl: "/home-list2.jpg",
           title: "体育",
           path: ""
         },
         {
-          imgurl: "../../assets/home-list1.jpg",
+          imgurl: "/home-list1.jpg",
           title: "曲苑杂坛",
           path: ""
         },
         {
-          imgurl: "../assets/home-list2.jpg",
+          imgurl: "/home-list2.jpg",
           title: "亲子",
           path: ""
         },
         {
-          imgurl: "../../assets/home-list1.jpg",
+          imgurl: "/home-list1.jpg",
           title: "展览休闲",
           path: ""
         },
         {
-          imgurl: "../../assets/home-list2.jpg",
+          imgurl: "/home-list2.jpg",
           title: "境外",
           path: ""
         }
       ],
-      imgurl:"",
     }
   },
-  mounted(){
-      this.imgurl = require('../../assets/home-list1.jpg');
+  created(){
+    // let xhr = new XMLHttpRequest();
+    // xhr.open("get","/",true);
+    // xhr.send();
+    // xhr.onreadystatechange = function(){
+    //   if(xhr.readyState == 4) {
+    //     if (xhr.status == 200) {
+    //         /*[5] 解析服务器返回的数据*/
+    //         console.log("haha",xhr.responseText);
+    //     }
+    //   }
+    //  }
+    // console.log(obj);
+    this.list.forEach((item)=>{
+      item.imgurl = require("../../assets" + item.imgurl)
+    })  
   }
 };
 </script>

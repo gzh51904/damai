@@ -1,5 +1,6 @@
 <template>
     <div>
+        <hometop></hometop>
         <banner></banner>
         <homelist></homelist>
         <joinnow></joinnow>
@@ -11,6 +12,7 @@
 
 <script>
 
+import hometop from "./hometop.vue";
 import homelist from "./homeList.vue";
 import banner from "./banner.vue";
 import joinnow from "./joinNow.vue";
@@ -27,6 +29,7 @@ export default {
     hof,
     show,
     more,
+    hometop,
   }
 }
 </script>

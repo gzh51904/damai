@@ -71,7 +71,6 @@ export default {
             for(var i = 0,len = arr.length;i < len;i++){
                 if(arr[i].name == val.name){break}
             };
-            console.log(i,len)
             if(i >= len){
                 arr.push(val);
             };
@@ -94,7 +93,6 @@ export default {
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        margin-top: .906667rem;
         box-sizing: border-box;
         background: white;
         height: 100%;
