@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "server",
   "version": "1.0.0",
@@ -19,3 +20,26 @@
   "author": "",
   "license": "ISC"
 }
+=======
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^5.0.0-alpha.7",
+    "inflection": "^1.12.0",
+    "mongoose": "^5.6.4",
+    "multer": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+>>>>>>> cbe24599d4f49f18a953792084c51786753f3c08

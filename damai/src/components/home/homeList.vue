@@ -60,7 +60,7 @@ export default {
   },
   created(){
     // let xhr = new XMLHttpRequest();
-    // xhr.open("get","/",true);
+    // xhr.open("get","http://v.juhe.cn/sms/send",true);
     // xhr.send();
     // xhr.onreadystatechange = function(){
     //   if(xhr.readyState == 4) {
@@ -72,7 +72,7 @@ export default {
     //  }
     // console.log(obj);
     this.list.forEach((item)=>{
-      item.imgurl = require("../../assets" + item.imgurl)
+      item.imgurl = require("../../assets/img" + item.imgurl)
     })  
   }
 };

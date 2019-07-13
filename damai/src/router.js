@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import goodsList from './pages/goodsList.vue'
+
+
 
 Vue.use(Router)
 
@@ -53,6 +56,11 @@ export default new Router({
         name:"register",
         path:"/register",
         component:register,
-      }      
+      } ,
+      {
+        name: 'goodslist',
+        path: '/goodslist',
+        component: goodsList,
+      }     
   ]
 })
