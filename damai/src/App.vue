@@ -1,9 +1,21 @@
 <template>
   <div id="app">
-		<h1>app.vue页面</h1>
+    <router-view></router-view>
   </div>
 </template>
+<script>
 
-<style scoped>
+export default {
 
+};
+</script>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#app{
+  background: white;
+}
 </style>
