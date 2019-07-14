@@ -73,7 +73,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+/* #info{
+margin-top:3.4rem;
+} */
 #info h3{
     
     font-size: 100%;
