@@ -59,8 +59,9 @@ export default {
     }
   },
   created(){
+    // this.$axios.get("/").then((res)=>{console.log(res)})
     // let xhr = new XMLHttpRequest();
-    // xhr.open("get","http://v.juhe.cn/sms/send",true);
+    // xhr.open("get","/",true);
     // xhr.send();
     // xhr.onreadystatechange = function(){
     //   if(xhr.readyState == 4) {

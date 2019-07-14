@@ -10,7 +10,7 @@ export default {
         }
     },
     mounted(){
-        this.url = require('../../assets/join-now.jpg');
+        this.url = require('../../assets/img/join-now.jpg');
     }
 }
 </script>

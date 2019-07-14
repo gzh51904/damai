@@ -78,7 +78,7 @@ export default {
   },
     mounted() {
       this.moreimg.forEach((item,i)=>{
-          item.moreurl = require("../../assets/moreimg1.jpg")
+          item.moreurl = require("../../assets/img/moreimg1.jpg")
       })
   }
 };

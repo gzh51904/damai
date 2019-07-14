@@ -1,70 +1,62 @@
 <template>
   <div class="login">
     <div class="login-logo">
-      <img src="../../assets/login-logo.png" alt="">
+      <img src="../../assets/img/login-logo.png" alt="">
     </div>
-    <!-- <form class="mui-input-group">
-        <div class="login-tel">
-          <div class="login-tel-cap">
-            <div class="login-cap" @click="changecap">
-                {{cap}}
-                <i class="mui-icon mui-icon-arrowdown login-tel-icon"></i>              
-            </div>
-          </div>
-          <div class="mui-input-row login-tel-main">
-            <input type="tel" 
-            class="mui-input-clear login-tel" 
-            placeholder="请输入手机号"
-            v-model="logintel">
-          </div>
-        </div>
-        <div class="mui-input-row login-test-main">
-            <input type="password" 
-            class="mui-input-password login-test" 
-            placeholder="请输入验证码"
-            maxlength="6"
-            autocomplete="off">
-        </div>
-        <div>
-            <a href="#" @click="getverify" ref="getverify">获取验证码</a>
-        </div>
-        <div @loginchangecap="loginchangecap">
-            <div>
-                <span @click="chose('no')">取消</span>
-                <span @click="chose('yes')">确定</span>
-            </div>
-            <ul>
-                <li v-for="(item,index) in adress" :key="index">{{item.title}}</li>
-            </ul>
-        </div>
-      </form> -->
     <div class="login-content">
       <div class="login-main">
-        <div class="login-title">短信登录</div>
         <form id="login-form" class="login-form">
-          <div class="login-mobile">
-            <div class="login-cap">             
-              +86
-              <i class="login-cap-icon"></i>
+          <div class="login-mobile login-field">
+            <div class="login-capbox">
+              <div class="login-cap">             
+                +86
+                <i class="login-cap-icon mui-icon mui-icon-arrowdown"></i>               
+              </div>
+              <div class="login-cap-pick">
+                <div class="login-pick-mask">
+                </div>
+                <div class="login-pick-model">
+                  <div class="login-model-head">
+                    <a href="" class="login-model-btn">取消</a>
+                    <a href="" class="login-model-btn">确定</a>
+                  </div>
+                  <div class="login-model-content">
+                    <div class="login-model-bigbox">
+                      <ul class="login-model-listbox"> 
+                        <li class="login-model-list"></li>
+                      </ul>
+                    </div>
+                    <div class="login-model-highlight"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="login-input">
-              <input class="login-text" tabindex="1" type="text" placeholder="请输入手机号">
+            <div class="login-telbox login-mobile-tel">
+              <input @click="loginchose('phone')" @blur="cleanlgchose('phone')" type="tel" class="login-tel" tabindex="1" placeholder="请输入手机号"/>
+              <div class="login-underline">
+                <div class="login-lineshow"></div>
+                <div class="login-linehidden" ref="transitionphone"></div>
+              </div>
             </div>
           </div>
-          <div class="login-mobile">
-            <div class="login-input">
-              <input class="login-text" tabindex="2" type="tel" placeholder="请输入验证码" maxlength="6" autocomplete = "off">
+          <div class="login-field login-test">
+            <div class="login-telbox">
+              <input @click="loginchose('test')" @blur="cleanlgchose('test')" type="tel" class="login-tel" tabindex="2" placeholder="请输入验证码" maxlength="6" aria-label="请输入验证码" autocomplete="off"/>
+              <div class="login-underline">
+                <div class="login-lineshow"></div>
+                <div class="login-linehidden" ref="transitiontest"></div>
+              </div>
             </div>
-            <div class="login-verify">
-              <a href="" class="login-gettest">获取验证码</a>
+            <div class="login-send-btn">
+              <a href="" class="login-send-link">获取验证码</a>
             </div>
           </div>
-          <div class="login-btn">
-            <button class="login-submit" type="submit" tabindex="3">登录</button>
+          <div class="login-lgbtn">
+            <button type="submit" tabindex="3" class="login-lgsubmit">登录</button>
           </div>
-          <div class="login-links">
-            <a href="" class="login-links-goto">账号密码登录</a>
-            <a href="" class="login-links-reg" @click.prevent="goto('/register')">新用户注册</a>
+          <div class="login-blocks">
+            <a href="" class="login-userlg">账号密码登录</a>
+            <a href="#/register" class="login-newreg">新用户注册</a>
           </div>
         </form>
       </div>
@@ -84,10 +76,26 @@ export default {
       ],
       cap: "+86",
       logintel: "",
-      loginest: ""
+      loginest: "",
     };
   },
   methods: {
+    cleanlgchose(val){
+      if(val == "test"){
+        this.$refs.transitiontest.style.width = 0;     
+      }else if(val == "phone"){
+        this.$refs.transitionphone.style.width = 0;
+      }
+    },
+    loginchose(val){
+      if(val == "test"){
+        this.$refs.transitiontest.style.width = "100%";
+        this.$refs.transitiontest.style.display = "block";
+      }else if(val == "phone"){
+        this.$refs.transitionphone.style.display = "block";
+        this.$refs.transitionphone.style.width = "100%";
+      }
+    },
     changecap() {},
     chose(val) {
       if (val == "yes") {
@@ -141,7 +149,7 @@ export default {
       // },1000)
     },
     loginchangecap() {}
-  }
+  },
 };
 </script>
 
@@ -161,167 +169,225 @@ export default {
   margin-top: 1.02667rem;
   border: 0;
 }
+
 .login-content{
-  position: absolute;
-  top: 3.26667rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.login-main{
   width: 100%;
   background: #fff;
   font: 400 .16rem arial;
   color: #666;
   margin: 0 auto;
-  padding: 0 .266667rem .266667rem;
-  margin-bottom: .266667rem;
+  padding: 0 20px 20px;
+  margin-bottom: 2px;
 }
-.login-title{
+.login-main{
   width: 100%;
-  font-size: .213333rem;
-  font-weight: 700;
-  border-bottom: .013333rem solid #ccc;
-  padding-bottom: .066667rem;
-  margin: 0 auto .133333rem;
-  display: none;
+  padding-top: 2px;
 }
 .login-form{
   width: 100%;
-  margin-top: .026667rem;
   margin: 0;
   padding: 0;
 }
-.login-mobile{
+.login-field{
+  margin-bottom: 10px;
+  font-size: 14px;
   position: relative;
-  margin-bottom: .133333rem;
-  font-size: .186667rem;
+}
+.login-capbox{
+  left: 0;
+  z-index: 9;
+  position: absolute;
+  bottom: 0;
 }
 .login-cap{
-  width: .933333rem;
-  padding-left: .133333rem;
-  height: .533333rem;
-  line-height: .533333rem;
-  border-right: .013333rem solid #ccc;
+  width: 70px;
+  padding-left: 10px;
+  height: 40px;
+  line-height: 40px;
+  border-right: 1px solid #ccc;
   position: relative;
   cursor: pointer;
-  border-color: #e7e7e7;
   border-bottom: 0;
+  border-color: #e7e7e7;
 }
-.login-cap-icon{
-  margin-left: .04rem;
-  font-size: .16rem;
+.login-capbox .login-cap-icon{
+  margin-left: 3px;
+  font-size: 12px;
+}
+.login-pick-model{
+  background-color: #fff;
+  z-index: 2;
+  transform: translateY(100%);
+  transition: transform .3s;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.login-model-head{
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+}
+.login-model-btn{
+  color: #ff1268;
+  font-size: 14px;
+  float: left;
+  margin: 0;
+  -webkit-box-flex: 1;
+  flex: 1 1;
+}
+.login-model-content{
+  height: 216px;
+  z-index: 10001;
+  width: 100%;
+}
+.login-model-bigbox{
+    position: relative;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 20px;
+    font-size: 1.2em;
+}
+.login-model-listbox{
+  height: 36px;
+  line-height: 36px;
 }
 .login-input{
   position: relative;
   padding: 0;
-}
-.login-text{
-  border-bottom: none;
-  border-color: #e7e7e7;
-  padding-left: 1.066667rem;
-  height: .56rem;
-  outline: none;
-  font-size: .186667rem;
-}
-
-.login-verify{
-  border-radius: .266667rem;
-  padding: 0 .133333rem;
-  margin-bottom: .106667rem;
-  background: #fff1f6;
-  line-height: .333333rem;
-  position: absolute;
-  right: .133333rem;
-  bottom: 0;;
-}
-.login-gettest{
-  color: #fc347b;
-  font-size: .16rem;
-  float: left;
-  margin: 0;
-}
-.login-btn{
-    width: 100%;
-    margin-top: .266667rem;
-}
-.login-submit{
-    background-color: #ff1268;
-    background-image: linear-gradient(90deg,#ff4aae,#ff1268);
-    border-color: #ff1268;
-    font-size: .24rem;
-    margin-top: 0;
-    border: .013333rem solid #ff9000;
-    border-radius: .04rem;
-    font-size: .266667rem;
-    height: .56rem;
-    line-height: .56rem;
-    outline: none;
-    color: #fff;
-    width: 100%;
-    cursor: pointer;
-}
-.login-links{
-    margin: .106667rem 0;
-    text-align: right;
-    zoom: 1;
-}
-.login-links-goto{
-    width: 50%;
-    text-align: left;
-}
-.login-links-reg{
-    width: 50%;
-    text-align: right;
-}
-.login-links a{
-    font-size: .16rem;
-    float: left;
-    margin: 0;
-    color: #999;
-}
-/* .login-tel {
+  font-size: 14px;
   position: relative;
-  margin-bottom: 0.133333rem;
-  font-size: 0.186667rem;
+  padding: 0 10px;
+  white-space: nowrap;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.login-tel-cap {
+.login-model-highlight{
+  height: 36px;
+  margin-top: -18px;
+  position: absolute;
+  top: 50%;
   left: 0;
-  z-index: 9;
-  position: absolute;
+  width: 100%;
+  pointer-events: none;
 }
-.login-tel .login-tel-icon {
-  margin-left: 0.04rem;
-  font-size: 0.16rem;
-}
-.login-cap {
-  border-bottom: 0;
-  border-color: #e7e7e7;
-  width: 0.933333rem;
-  padding-left: 0.133333rem;
-  height: 0.533333rem;
-  line-height: 0.533333rem;
-  border-right: 0.013333rem solid #ccc;
-  position: relative;
-  cursor: pointer;
-}
-.login-tel-main {
+.login-telbox{
   position: relative;
   padding: 0;
 }
-.login-tel-main .login-tel {
-  padding-left: 1.066667rem;
-  height: 0.56rem;
+.login-telbox .login-tel{
+  height: 42px;
   outline: none;
-  font-size: 0.186667rem;
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  line-height: 42px;
+  margin: 0;
+  padding: 0;
+  padding-left: 15px;
 }
-.login-test-main {
-  border-color: #e7e7e7;
+.login-mobile-tel .login-tel{
+  padding-left: 80px;
 }
-.login-test-main .login-test {
-  height: 0.56rem;
+.login-underline{
+  position: relative;
+}
+.login-lineshow{
+  background: #e7e7e7;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+}
+.login-linehidden{
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #ff1268;
+  transform: translate(-50%);
+  transition: width .4s;
+}
+
+.login-send-btn{
+  border-radius: 20px;
+  padding: 0 10px;
+  margin-bottom: 8px;
+  background: #fff1f6;
+  line-height: 25px;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+.login-send-link{
+  color: #fc347b;
+  font-size: 12px;
+  float: left;
+  margin: 0;
+  text-decoration: none;
+}
+.login-lgbtn{
+  margin-top: 20px;
+  width: 100%;
+}
+.login-lgsubmit{
+  margin-top: 0;
+  font-size: 18px;
+  background-color: #ff1268;
+  background-image: linear-gradient(90deg,#ff4aae,#ff1268);
+  border-color: #ff1268;
+  border: 1px solid #ff9000;
+  border-radius: 3px;
+  height: 42px;
+  line-height: 42px;
   outline: none;
-  font-size: 0.186667rem;
-  padding-left: 0.133333rem;
-} */
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+}
+.login-blocks{
+  margin: 8px 0;
+  text-align: right;
+  zoom: 1;
+}
+.login-userlg{
+  width: 50%;
+  text-align: left;
+}
+.login-newreg{
+  width: 50%;
+  text-align: right
+}
+.login-blocks a{
+  font-size: 12px;
+  float: left;
+  margin: 0;
+  color: #999;
+  text-decoration: none;
+}
+.login-form a{
+  display: inline-block;
+}
+.login-blocks:after {
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+}
+.login-blocks:after, .login-blocks:before {
+    content: " ";
+    display: table;
+}
 </style>
