@@ -18,7 +18,7 @@ import city from "./components/home/city.vue";
 
 
 export default new Router({
-<<<<<<< HEAD
+
   routes: [
       {
         name:"city",
@@ -44,7 +44,7 @@ export default new Router({
         component:homesearch,
       },
 
-<<<<<<< HEAD
+
       {
         name:"mine",
         path:"/mine",
@@ -65,12 +65,12 @@ export default new Router({
         path: '/goodslist',
         component: goodsList,
       }     
-=======
 
->>>>>>> ljf
+
+
   ]
 })
-=======
+
   routes: [{
       name: 'goodslist',
       path: '/goodslist',
@@ -88,5 +88,5 @@ export default new Router({
       }]
     }
   ]
-});
->>>>>>> weiluK
+
+

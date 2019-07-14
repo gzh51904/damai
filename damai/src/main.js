@@ -16,7 +16,6 @@ import ElementUI from 'element-ui';
 
 Vue.use(ElementUI);
 
-// import './css/index.css';
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import './lib/dist/css/mui.css'

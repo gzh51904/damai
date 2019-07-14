@@ -57,7 +57,7 @@
         <div class="ticket-level">
             <h4>票档</h4>
             <div class="ticket-btn">
-                <mt-button type="primary" style="background:#F5F5F5; margin-bottom:15px; margin-left:10px;">看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" @click="choose" :class="{show:activecolor}" style="background:#F5F5F5; margin-bottom:15px; margin-left:10px;">看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
                 <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;580</mt-button>&nbsp;&nbsp;&nbsp;
                 <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;880</mt-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <mt-button type="danger" style="background:#F5F5F5; margin-left:10px;">看台1280</mt-button>&nbsp;&nbsp;&nbsp;
@@ -162,6 +162,7 @@ export default {
        return {
         msg:false,
         msg1:false,
+         activecolor: false
        } 
     },
     // 注册
@@ -181,15 +182,20 @@ export default {
         },
         hide1(){
             this.msg1=false;
+        },
+        choose(){
+        this.activecolor= true;
         }
-        // links(){
-
-        // }
+        
     },
 }
 </script>
 
 <style scoped>
+.show{
+    
+    background-color:red !important;
+}
 #app {
     /* height: 100%; */
     /* overflow-y: scroll; */
