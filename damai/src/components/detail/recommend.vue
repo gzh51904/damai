@@ -8,7 +8,7 @@
         <div>
             <div class="detail-suggest-item">
                 <div class="project-item skin project_newhome" data-spm="ditem_0">
-                    <div class="project-item_pic"><img class="project-item_pic_poster" src="../../img/zha.png" lazy="loaded">
+                    <div class="project-item_pic"><img class="project-item_pic_poster" src="../../assets/img/zha.png" lazy="loaded">
                         <!---->
                     </div>
                     <div class="project-item_info">

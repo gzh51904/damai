@@ -229,7 +229,7 @@ export default {
     /* padding-left: .516667rem; */
     height:1.263889rem;
     width:.291667rem;
-    background: url(../../img/gou.png) no-repeat center center;
+    background: url(../../assets/img/gou.png) no-repeat center center;
 }
 .item-title .text {
     font-size: .37333rem;

@@ -21,19 +21,19 @@
 
     <p> 艺人阵容：周杰伦、范丞丞、梁博、袁咏琳、Supper Moment乐团等。</p>
 
-    <img src="../../img/zr.png">
-    <img src="../../img/zj.png"><br />
+    <img src="../../assets/img/zr.png">
+    <img src="../../assets/img/zj.png"><br />
     <span>周杰伦</span>
-    <img src="../../img/f.png"><br />
+    <img src="../../assets/img/f.png"><br />
     <span>范丞丞</span>
 
-    <img src="../../img/lb.png">
+    <img src="../../assets/img/lb.png">
     <span>梁&nbsp;&nbsp;博</span>
 
-    <img src="../../img/yl.png"><br />
+    <img src="../../assets/img/yl.png"><br />
     <span>袁咏琳</span>
 
-    <img src="../../img/zhh.png"><br />
+    <img src="../../assets/img/zhh.png"><br />
     <span>Supper Moment乐团</span>
     <hr />
     <h2 class="title" style="
@@ -44,17 +44,17 @@
         font-weight: 700;">演职人员</h2>
     <div class="name-info">
         <dl>
-            <dt><img src="../../img/f2.png"></dt>
+            <dt><img src="../../assets/img/f2.png"></dt>
             <dd class="name">范丞丞</dd>
             <dd>歌手</dd>
         </dl>
         <dl>
-            <dt><img src="../../img/z2.png"></dt>
+            <dt><img src="../../assets/img/z2.png"></dt>
             <dd class="name">周杰伦</dd>
             <dd>歌手</dd>
         </dl>
         <dl>
-            <dt><img src="../../img/l3.png"></dt>
+            <dt><img src="../../assets/img/l3.png"></dt>
             <dd class="name">梁博</dd>
             <dd>歌手</dd>
         </dl>

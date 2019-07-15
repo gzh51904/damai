@@ -3,7 +3,7 @@
     <div class="box">
         <div class="bgimg">
             <div class="pic_l">
-                <img src="../../img/head2.png" class="pic_l1">
+                <img src="../../assets/img/head2.png" class="pic_l1">
             </div>
             <div class="text_r">
                 <div class="text_name">【北京】2019爱奇艺尖叫之夜演唱会北京站</div>
@@ -216,7 +216,7 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-image: url(../../img/cover.jpg);
+    background-image: url(../../assets/img/cover.jpg);
     background-color: rgba(0, 0, 0, .4);
     background-size: cover;
     background-repeat: no-repeat;
@@ -268,7 +268,7 @@ export default {
     font-size: .416667rem;
     margin-left: .416667rem;
     padding-left: .516667rem;
-    background: url(../../img/gou.png) no-repeat left center;
+    background: url(../../assets/img/gou.png) no-repeat left center;
 }
 
 /* 服务信息隐藏显示 */
@@ -300,7 +300,7 @@ position: fixed;
     display: inline-block;
     height: .25rem;
     width: 2.319444rem;
-    background: url(../../img/cha1.png) no-repeat right center;
+    background: url(../../assets/img/cha1.png) no-repeat right center;
 
 }
 
@@ -313,7 +313,7 @@ position: fixed;
     font-size: .416667rem;
     margin-left: .416667rem;
     padding-left: .516667rem;
-    background: url(../../img/gou.png) no-repeat left center;
+    background: url(../../assets/img/gou.png) no-repeat left center;
 
 }
 
@@ -399,7 +399,7 @@ position: fixed;
 
 .time i {
     display: inline-block;
-    background: url(../../img/arror.png) no-repeat left center;
+    background: url(../../assets/img/arror.png) no-repeat left center;
     height: .277778rem;
     width: 2.480556rem;
     font-size: .416667rem;
@@ -435,7 +435,7 @@ position: fixed;
     display: inline-block;
     height: .25rem;
     width: 1.319444rem;
-    background: url(../../img/cha1.png) no-repeat 15px center;
+    background: url(../../assets/img/cha1.png) no-repeat 15px center;
 
 }
 
@@ -650,7 +650,7 @@ position: fixed;
 .location-right-icon {
     width: .53333rem;
     height: .53333rem;
-    background: url(../../img/location.jpg) no-repeat right;
+    background: url(../../assets/img/location.jpg) no-repeat right;
     background-size: contain;
     border-radius: 1.138889rem;
 
@@ -719,7 +719,7 @@ position: fixed;
 }
 /*------- 图标----- */
 .left1 .icon-home {
-    background-image: url(../../img/home.png);
+    background-image: url(../../assets/img/home.png);
 }
 
 .left__icon2 {
@@ -731,7 +731,7 @@ position: fixed;
     color: #888;
 }
 .left__icon-disfavor {
-    background-image: url(../../img/heart.png);
+    background-image: url(../../assets/img/heart.png);
 }
 .left__icon {
     width: .53333rem;
