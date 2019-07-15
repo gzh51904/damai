@@ -23,7 +23,9 @@
       <div class="xuan2">48排21号</div>
     </div>
     <div>
-      <youmustknow v-if="isshowyoukonw" v-bind:isshowyoukonw.sync="isshowyoukonw"></youmustknow>
+      <transition name="pull">
+        <youmustknow v-if="isshowyoukonw" v-bind:isshowyoukonw.sync="isshowyoukonw"></youmustknow>
+      </transition>
     </div>
   </div>
 </template>
@@ -49,6 +51,15 @@ export default {
 </script>
 
 <style scoped>
+.pull-enter-active,
+.pull-leave-active {
+  transition: all 0.2s ease;
+}
+.pull-enter, .pull-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(450px);
+}
+
 li {
   list-style: none;
 }

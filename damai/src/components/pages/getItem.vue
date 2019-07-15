@@ -21,13 +21,12 @@
         <span></span>
       </li>
     </ul>
+
     <div class="showallcity" v-if="cityactive||bestactive||lanchactive||timeactive">
       <getcity v-if="cityactive"></getcity>
 
       <gettime v-if="timeactive"></gettime>
-
       <getbest v-if="bestactive"></getbest>
-
       <getdingwei v-if="lanchactive"></getdingwei>
     </div>
   </div>
@@ -125,6 +124,23 @@ export default {
 </script>
 
 <style scoped>
+.pull-enter-active,
+.pull-leave-active {
+  transition: all 0.5s ease;
+}
+.pull-enter,
+.pull-leave-to {
+  opacity: 0;
+  transform: translateY(-1px);
+}
+.pull-enter-active,
+.pull-leave-active {
+  transition: all 0.2s ease;
+}
+.pull-enter,
+.pull-leave-to {
+  opacity: 0;
+}
 .tofixed {
   position: fixed;
   width: 100%;

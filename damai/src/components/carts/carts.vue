@@ -4,7 +4,9 @@
       <cartsmaintop></cartsmaintop>
       <send></send>
       <paymethod></paymethod>
-      <laststep v-if="showlaststep" v-bind:showlaststep.sync="showlaststep"></laststep>
+      <transition name="pull">
+        <laststep v-if="showlaststep" v-bind:showlaststep.sync="showlaststep"></laststep>
+      </transition>
     </div>
     <div class="carts-foot">
       <div class="footitem-top">
@@ -60,8 +62,6 @@ export default {
   },
   methods: {
     stepactive() {
-    
-
       this.showlaststep = !this.showlaststep;
     }
   }
@@ -258,5 +258,13 @@ export default {
 }
 .el-iconcolor {
   color: #ff657e;
+}
+.pull-enter-active,
+.pull-leave-active {
+  transition: all 0.2s ease;
+}
+.pull-enter, .pull-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(450px);
 }
 </style>

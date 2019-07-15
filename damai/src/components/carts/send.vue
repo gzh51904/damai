@@ -31,7 +31,9 @@
       </div>
     </div>
     <div>
-      <addaddress :showNewAddress.sync="showNewAddress" v-if="showNewAddress"></addaddress>
+      <transition name="pull">
+        <addaddress :showNewAddress.sync="showNewAddress" v-if="showNewAddress"></addaddress>
+      </transition>
     </div>
   </div>
 </template>
@@ -52,8 +54,7 @@ export default {
 
   components: {
     resolveinfo,
-    addaddress,
-  
+    addaddress
   },
   methods: {
     NewAddress() {
@@ -74,6 +75,14 @@ export default {
 </script>
 
 <style scoped>
+.pull-enter-active,
+.pull-leave-active {
+  transition: all 0.2s ease;
+}
+.pull-enter, .pull-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(450px);
+}
 .send-top {
   border: 0px solid black;
   position: relative;
