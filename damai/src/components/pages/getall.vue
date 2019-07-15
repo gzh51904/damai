@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="infinite-list ulbox">
-      <li v-for="item in goodsList" :key="item.id">
+      <li v-for="item in goodsList" :key="item.id" @click="leaveTo(item._id)">
         <i>
           <img :src="item.icon" alt />
         </i>
@@ -22,27 +22,13 @@ export default {
       goodsList: []
     };
   },
-  // computed: {
-  //   queryID() {
-  //     return this.$route.query.id;
-  //   }
-  // },
-  // //监听执行
-  // watch: {
-  //   queryID(nv, ov) {
-  //     console.log("nv==ov", ov, nv);
-  //     // this.userAddressLIst = nv;
-  //     if (queryId == 1) {
-  //       this.goodsList = data;
-  //     } else if (queryId == 2) {
-  //       var arr2 = data.reverse();
-  //       this.goodsList = arr2;
-  //     } else if (queryId == 3) {
-  //     }
-  //   }
-  // },
+  methods: {
+    leaveTo(id) {
+      console.log("id", id);
+      this.$router.push({ path: "/detail", query: { id: id } });
+    }
+  },
   async created() {
-    console.log(this.$route.params);
     let queryId = this.$route.params.id;
     //   获取传入id
 
@@ -51,9 +37,9 @@ export default {
       "http://localhost:9001/admin/api/getgoodslist"
     );
     let aaa = data[0].venueName.trim().split(" ");
-    console.log(aaa[0]);
+    console.log(data[0]);
+
     let seldate = new Date(aaa[0]);
-    console.log(seldate.getTime());
 
     this.goodsList = data;
     if (queryId == 2) {

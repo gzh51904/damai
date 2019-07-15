@@ -26,7 +26,7 @@
       </div>
       <div class="c-bottom">
         <div class="c-bottom-item">
-          <div class="c-price">￥5800.00</div>
+          <div class="c-price">￥{{playprice}}</div>
           <div class="c-mingxi">
             <div class="c-mingxi-item" @click="stepactive">明细</div>
             <div>
@@ -50,7 +50,8 @@ import laststep from "./laststep.vue";
 export default {
   data() {
     return {
-      showlaststep: false
+      showlaststep: false,
+      playprice: ""
     };
   },
   components: {
@@ -64,6 +65,10 @@ export default {
     stepactive() {
       this.showlaststep = !this.showlaststep;
     }
+  },
+  created() {
+    let aGood = this.$route.query;
+    this.playprice = aGood.chooseOne;
   }
 };
 </script>

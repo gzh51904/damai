@@ -4,7 +4,7 @@
       <div class="ls-top-1">票品信息</div>
       <div class="ls-content-01">
         <div class="payDetailInfo">
-          <div class="column_1">￥5800.00</div>
+          <div class="column_1">￥{{playpriceA}}</div>
           <div class="column_1">4排21号</div>
           <div class="column_1">内场A3区</div>
         </div>
@@ -24,7 +24,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      playpriceA: ""
+    };
+  },
+  created() {
+    let aGood = this.$route.query;
+    this.playpriceA = aGood.chooseOne;
+  }
+};
 </script>
 
 <style  scoped>

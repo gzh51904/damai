@@ -17,6 +17,8 @@ import city from "./components/home/city.vue";
 
 import detail from './components/detail/detail.vue';
 
+
+
 export default new Router({
 
   routes: [{
@@ -76,12 +78,12 @@ export default new Router({
         name: 'addnewaddress',
         path: 'addnewaddress',
         component: addNewAddress,
-      }, {
-        //当浏览器地址为#/detail时，渲染detail组件、同下
-        name: 'Detail',
-        path: '/detail',
-        component: detail
-      }]
+      }, ]
+    }, {
+      //当浏览器地址为#/detail时，渲染detail组件、同下
+      name: 'Detail',
+      path: '/detail',
+      component: detail
     }
   ]
 })

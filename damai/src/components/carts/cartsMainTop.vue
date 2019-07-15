@@ -2,12 +2,12 @@
   <div class="main-top">
     <div class="t-info">
       <div class="t-info-left">
-        <li class="li01">伦敦西区原版音乐剧《玛蒂尔达》</li>
-        <li class="li02">2019.12.06 19:30-22:00</li>
-        <li class="li03">上海 | 上汽上海文化广场</li>
+        <li class="li01">{{oneGood.name}}</li>
+        <li class="li02">{{playtime}} 19:30-22:00</li>
+        <li class="li03">{{oneGood.logicAddress}} | {{ playarea}}</li>
       </div>
       <div class="t-info-right">
-        <img src="../../assets/img/goods01.jpg" alt srcset class="right-img" />
+        <img v-bind:src="oneGood.icon" alt srcset class="right-img" />
       </div>
     </div>
     <div class="t-xuanzuo">
@@ -36,7 +36,10 @@ import youmustknow from "./youmustknow.vue";
 export default {
   data() {
     return {
-      isshowyoukonw: false
+      isshowyoukonw: false,
+      oneGood: "",
+      playtime: "",
+      playarea: ""
     };
   },
   methods: {
@@ -46,6 +49,24 @@ export default {
   },
   components: {
     youmustknow
+  },
+  async created() {
+    let aGood = this.$route.query;
+    this.playprice = aGood.chooseOne;
+    console.log(aGood);
+    let { data } = await this.$axios.get(
+      "http://localhost:9001/admin/api/getgoodslist"
+    );
+    data.forEach(item => {
+      if (item._id == aGood.id) {
+        let aae = item.venueName.trim().split(" ");
+
+        this.playtime = aae[0];
+        this.playarea = aae[4];
+        this.oneGood = item;
+      }
+    });
+    console.log(this.oneGood);
   }
 };
 </script>

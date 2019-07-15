@@ -1,5 +1,5 @@
 <template>
-<div id="attention" >
+<div id="attention" style="background:white;">
     <div class="notice-section" noticelist="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
         <div class="section-title" data-spm="dmore" data-spm-anchor-id="a2o71.project.0.dmore">
             <div class="title-text">须知事项</div>
@@ -229,7 +229,7 @@ export default {
     /* padding-left: .516667rem; */
     height:1.263889rem;
     width:.291667rem;
-    background: url(../../img/gou.png) no-repeat center center;
+    background: url(../../assets/img1/gou.png) no-repeat center center;
 }
 .item-title .text {
     font-size: .37333rem;

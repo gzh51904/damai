@@ -1,6 +1,7 @@
 <template>
     <div class="buyinfo">
         连接到购物车
+        
     </div>
 </template>
 <script>
