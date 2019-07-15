@@ -34,6 +34,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    *{
+    background: white;
+    }
 </style>

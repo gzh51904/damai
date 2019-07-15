@@ -1,5 +1,5 @@
 <template>
-    <div :style="{'background-image':'url(' + url + ')'}" class="join-now"></div>
+    <div :style="{'background-image':'url(' + url + ')','background-size':'cover'}" class="join-now"></div>
 </template>
 
 <script>

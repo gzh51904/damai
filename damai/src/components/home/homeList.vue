@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="home-list">
-            <li v-for="(item,i) in list" :key="i" class="home-list-pre">
+            <li v-for="(item,i) in list" :key="i" class="home-list-pre" @click="hltogoodslist">
                 <!-- <span :style="{'background-image':'url(' + item.imgurl + ')'}" class="home-list-img"></span> -->
                 <img :src="item.imgurl" class="home-list-img">
                 <p class="home-list-title">{{item.title}}</p>
@@ -59,22 +59,14 @@ export default {
     }
   },
   created(){
-    // this.$axios.get("/").then((res)=>{console.log(res)})
-    let xhr = new XMLHttpRequest();
-    xhr.open("get","/",true);
-    xhr.send();
-    xhr.onreadystatechange = function(){
-      if(xhr.readyState == 4) {
-        if (xhr.status == 200) {
-            /*[5] 解析服务器返回的数据*/
-            console.log("haha",xhr.responseText);
-        }
-      }
-     }
-    // console.log(obj);
     this.list.forEach((item)=>{
       item.imgurl = require("../../assets/img" + item.imgurl)
     })  
+  },
+  methods:{
+    hltogoodslist(){
+      this.$router.push("/goodsList");
+    }
   }
 };
 </script>

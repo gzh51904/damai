@@ -55,14 +55,14 @@
             </div>
           </div>
           <div class="login-lgbtn">
-            <button type="submit" tabindex="3" class="login-lgsubmit">登录</button>
+            <button tabindex="3" class="login-lgsubmit" @click.prevent="userlogin">登录</button>
           </div>
           <div class="login-blocks">
             <a href="" class="login-userlg">账号密码登录</a>
             <a href="#/register" class="login-newreg">新用户注册</a>
           </div>
         </form>
-        <div class="login-send-teltest" v-show="lgtelfalse">请输入正确的手机号</div>
+        <div class="login-send-teltest" v-show="lgtelfalse">{{testerror}}</div>
       </div>
     </div>
   </div>
@@ -86,6 +86,7 @@ export default {
       countdown:"获取验证码",
       lgcleartelicon:"none",
       lgcleartesticon:"none",
+      testerror:"",
     };
   },
   methods: {
@@ -125,6 +126,7 @@ export default {
       if (!(/^1[3-9]\d{9}$/).test(this.logintel)) {
         // 请输入正确的手机号
         this.lgtelfalse = true;
+        this.testerror = '请输入正确的手机号';
         this.$refs.phonenum.focus();
         this.$refs.transitionphone.style.width = "100%";
         this.$refs.transitionphone.style.display = "block";
@@ -141,19 +143,20 @@ export default {
           let j = String.fromCharCode(i);
           arr.push(j);
         }
-        for (let i = 97; i <= 122; i++) {
-          let j = String.fromCharCode(i);
-          arr.push(j);
-        }
+        // for (let i = 97; i <= 122; i++) {
+        //   let j = String.fromCharCode(i);
+        //   arr.push(j);
+        // }
         let randomVal;
         for (let i = 0; i < 6; i++) {
-          randomVal = parseInt(Math.random() * 36);
+          randomVal = parseInt(Math.random() * 10);
           arr1.push(arr[randomVal]);
         }
         randomStr = arr1.join("");
         return randomStr;
       }
       let randomStrGet = getRandomVal();
+      localStorage.setItem('lgrandomValue',JSON.stringify(randomStrGet))
       let script = document.createElement("script");
       script.src = `http://v.juhe.cn/sms/send?mobile=${this.logintel}&tpl_id=171855&tpl_value=%23code%23%3D${randomStrGet}&key=83e8680d7ea9cf3f3c8608610407cc07`;
       document.body.appendChild(script);
@@ -171,6 +174,27 @@ export default {
       
       
     }},
+    userlogin(){
+      let randomValue = JSON.parse(localStorage.getItem("lgrandomValue"));
+      if(this.logintest != randomValue){
+        this.lgtelfalse = true;
+        this.testerror = '短信验证码错误或已失效，请重新输入';
+        setTimeout(()=>{
+          this.lgtelfalse = false;
+        },1000)
+      }else if(this.logintest == randomValue){
+        this.$axios.post("http://localhost:9001/admin/api/deng",{
+          username:this.logintel,
+          password:"123456",
+        }).then((res)=>{console.log(res)}).catch((error)=>{
+          this.lgtelfalse = true;
+          this.testerror = '该号码尚未注册';
+          setTimeout(()=>{
+          this.lgtelfalse = false;
+          },1000)
+        }).catch((error)=>{})
+      }
+    },
     loginchangecap() {}
   },
   updated(){

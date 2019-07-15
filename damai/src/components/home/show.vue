@@ -2,7 +2,7 @@
     <div>
         <div class="show-head">
             近期演出
-            <span class="show-more">
+            <span class="show-more" @click="showtogoodslist">
                 演出日历
                 <i class="show-more-icon mui-icon mui-icon-arrowright"></i>
             </span>
@@ -15,7 +15,7 @@
         </ul>
         <div class="show-week-list">
             <ul class="show-week-content">
-                <li v-for="(item,i) in showlist" :key="i" class="show-week-img">
+                <li v-for="(item,i) in showlist" :key="i" class="show-week-img" @click="showtotodetail('')">
                     <div :style="{'background-image':'url(' + item.url + ')'}" class="show-week-trueimg"></div>
                     <p>{{item.title}}</p>
                     <div>{{item.price}}</div>
@@ -67,15 +67,12 @@ export default {
                 break;
             }
         }
-        this.$axios.get("/getgoodslist").then((res)=>{console.log(res)});
+        this.$axios.get('http://localhost:9001/admin/api/getgoodslist').then(({data})=>{console.log(data)}).catch((error)=>{});
     },
     methods:{
-        // changeshowday(val1,val2){
-        //     this.showselected = val1;
-        //     this.$axios.get("/getgoodslist").then(res){
-        //         console.log(res);
-        //     }
-        // }
+        showtogoodslist(){
+            this.$router.push('/goodsList');
+        }
     },
 }
 </script>
@@ -134,7 +131,7 @@ export default {
     }
     .show-week-img{
         background-image: url("../../assets/img/loading.png");
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
         display: inline-block;
         height: 5.84rem;
