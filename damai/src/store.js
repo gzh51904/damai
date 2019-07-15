@@ -10,25 +10,25 @@ export default new Vuex.Store({
   state: {
     userAddress: [{
         id: 1,
-        name: "葵司",
+        name: "何葵司",
         phone: 19071458647,
-        addres: "广东省广州市天河区元岗街道天河区圆钢街到11654654",
+        addres: "湖南省益阳市赫山区龙岭工业园湖南省益阳市赫山区龙岭工业园29路风波庄",
         iddefault: true,
         selecred: true
       },
       {
         id: 2,
-        name: "光头强",
+        name: "李丽华",
         phone: 15651458647,
-        addres: "海尔博市青葵第三季度谁看得见就囧深林55号9999999999",
+        addres: "天津天津市河西区陈塘庄街道天津天津市河西区陈塘庄街道清远路北",
         iddefault: false,
         selecred: false
       },
       {
         id: 3,
-        name: "李青",
+        name: "张耿耿",
         phone: 188222458647,
-        addres: "英雄联盟王者峡谷救世华佗之龙的传人666666666",
+        addres: "天津天津市河西区陈塘庄街道天津天津市河西区陈塘庄街道清远路北",
         iddefault: false,
         selecred: false
       }

@@ -4,6 +4,7 @@
       <cartsmaintop></cartsmaintop>
       <send></send>
       <paymethod></paymethod>
+      <laststep v-if="showlaststep" v-bind:showlaststep.sync="showlaststep"></laststep>
     </div>
     <div class="carts-foot">
       <div class="footitem-top">
@@ -25,7 +26,7 @@
         <div class="c-bottom-item">
           <div class="c-price">￥5800.00</div>
           <div class="c-mingxi">
-            <div class="c-mingxi-item">明细</div>
+            <div class="c-mingxi-item" @click="stepactive">明细</div>
             <div>
               <i class="el-icon-arrow-down el-iconcolor"></i>
             </div>
@@ -43,12 +44,26 @@
 import cartsmaintop from "./cartsMainTop.vue";
 import send from "./send.vue";
 import paymethod from "./paymethod.vue";
+import laststep from "./laststep.vue";
 export default {
+  data() {
+    return {
+      showlaststep: false
+    };
+  },
   components: {
     cartsmaintop,
     send,
 
-    paymethod
+    paymethod,
+    laststep
+  },
+  methods: {
+    stepactive() {
+    
+
+      this.showlaststep = !this.showlaststep;
+    }
   }
 };
 </script>

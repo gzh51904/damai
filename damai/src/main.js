@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import './rem/rem.js'
+import './assets/rem/rem.js'
 //引入
 import router from './router'
 

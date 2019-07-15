@@ -39,6 +39,7 @@
 <script>
 import resolveinfo from "./resolveinfo.vue";
 import addaddress from "./addaddress.vue";
+
 export default {
   data() {
     return {
@@ -51,7 +52,8 @@ export default {
 
   components: {
     resolveinfo,
-    addaddress
+    addaddress,
+  
   },
   methods: {
     NewAddress() {
