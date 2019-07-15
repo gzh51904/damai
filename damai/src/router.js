@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import goodsList from './pages/goodsList.vue'
+// import goodsList from './pages/goodsList.vue'
 
 
 
@@ -13,6 +13,7 @@ import mine from "./components/mine/mine.vue";
 import homesearch from "./components/home/homesearch.vue";
 import home from "./components/home/home.vue";
 import city from "./components/home/city.vue";
+import goodslist from "./pages/goodsList.vue";
 
 
 
@@ -60,7 +61,7 @@ export default new Router({
       {
         name: 'goodslist',
         path: '/goodslist',
-        component: goodsList,
+        component: goodslist,
       }     
   ]
 })

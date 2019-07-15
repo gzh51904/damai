@@ -49,7 +49,7 @@
               </div>
             </div>
             <div class="login-send-btn">
-              <span class="login-send-link" @click.prevent="getverify">获取验证码</span>
+              <span class="login-send-link" @click.prevent="getverify">{{countdown}}</span>
             </div>
           </div>
           <div class="login-lgbtn">
@@ -81,6 +81,7 @@ export default {
       logintest: "",
       choseadress:false,
       lgtelfalse:false,
+      countdown:"获取验证码",
     };
   },
   methods: {
@@ -150,14 +151,16 @@ export default {
       document.body.appendChild(script);
       document.body.removeChild(document.body.lastChild);
       let endTime = Date.now() + 60*1000;
+      let clickTime = Date.now();
       let countDown = setInterval(()=>{
-          // this.$refs.getverify.innerText =
           let currentTime = Date.now();
+          this.countdown = Math.ceil((endTime - currentTime) / 1000) + "秒后重发";
           if(currentTime >= endTime){
-
+            this.countdown = "获取验证码";
+            clearInterval(countDown);
           }
       },1000)
-
+      
       
     }},
     loginchangecap() {}
