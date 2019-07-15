@@ -1,7 +1,7 @@
 <template>
-<div id="info" style="height:1000px">
+<div id="info" style="background-color: #fff;">
     <h2 class="title" style="
-    margin-top:.791667rem;
+    margin-top:0rem;
     margin-bottom:.791667rem;
     font-size: .58667rem;
     color: #000;
@@ -74,9 +74,6 @@ export default {
 </script>
 
 <style scoped>
-/* #info{
-margin-top:3.4rem;
-} */
 #info h3{
     
     font-size: 100%;
@@ -101,12 +98,9 @@ margin-top:3.4rem;
 
 #info dl dd {
     font-size: .25rem;
-    /* margin-left:.277778rem; */
+    
     text-align:center;
 
 }
-#info>img{
-    /* width:4.861111rem;
-    height:7.097222rem; */
-}
+
 </style>

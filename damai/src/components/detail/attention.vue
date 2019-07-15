@@ -1,12 +1,12 @@
 <template>
-<div id="attention" >
-    <div class="notice-section" noticelist="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
+<div id="attention" style="background-color: #fff;">
+    <div class="notice-section" >
         <div class="section-title" data-spm="dmore" data-spm-anchor-id="a2o71.project.0.dmore">
             <div class="title-text">须知事项</div>
-            <!---->
+          
         </div>
         <div class="subtitle">购票须知</div>
-        <!-- <div class="notice-content"> -->
+       
             <div  class="tab-content">
                 <div  class="info-item">
                     <div  class="item-title"><i  class="gou iconfont .icon"></i>
@@ -64,9 +64,9 @@
                 </div>
                 <div  class="bottom-padding"></div>
             </div>
-        <!-- </div> -->
+      
         <div class="subtitle subtitle-margin-top">观演须知</div>
-        <!-- <div class="notice-content"> -->
+     
             <div  class="tab-content">
                 <div  class="info-item">
                     <div  class="item-title"><i  class="gou iconfont .icon"></i>
@@ -112,7 +112,7 @@
                 </div>
                 <div  class="bottom-padding"></div>
             </div>
-        <!-- </div> -->
+       
     </div>
 </div>
 </template>

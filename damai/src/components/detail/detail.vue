@@ -52,17 +52,17 @@
         <p> <span @click="hide1"></span></p>
         <div class="time-info">
             <h4>场次<span>场次时间均为演出当地时间</span></h4>
-            <mt-button type="danger" size="large" style="background:pink; color:red">2019-08-04 周日 19：00</mt-button>
+            <mt-button type="danger"  style="background:pink; color:red">2019-08-04 周日 19：00</mt-button>
         </div>
         <div class="ticket-level">
             <h4>票档</h4>
             <div class="ticket-btn">
-                <mt-button type="danger" @click="choose" :class="{show:activecolor}" style="background:#F5F5F5; margin-bottom:15px; margin-left:10px;">看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;580</mt-button>&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;880</mt-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5; margin-left:10px;">看台1280</mt-button>&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5;">看台1680</mt-button>&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5;">场地2019</mt-button>
+                <mt-button type="danger" @click="choose" :class="{show:activecolor}" style="background:#eee; color:#111; margin-bottom:15px; margin-left:10px;">看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111;" >看&nbsp;台&nbsp;580</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111;">看&nbsp;台&nbsp;880</mt-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111; margin-left:0.2rem">看台1280</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111;">看台1680</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111;">场地2019</mt-button>
             </div>
         </div>
 
@@ -75,7 +75,7 @@
                     </div>
                     
                 </div>
-                <div class="button button common normal" >
+                <div class="button button common normal" @click="turn("./buyinfo")" >
                     确定
                 </div>
             </div>
@@ -162,7 +162,7 @@ export default {
        return {
         msg:false,
         msg1:false,
-         activecolor: false
+        activecolor: false
        } 
     },
     // 注册
@@ -183,8 +183,11 @@ export default {
         hide1(){
             this.msg1=false;
         },
-        choose(){
-        this.activecolor= true;
+        // choose(){
+        // this.activecolor= true;
+        // },
+        turn(val){
+        this.$router.push(val);
         }
         
     },
@@ -194,7 +197,7 @@ export default {
 <style scoped>
 .show{
     
-    background-color:red !important;
+    /* background-color:red !important; */
 }
 #app {
     /* height: 100%; */
@@ -274,7 +277,7 @@ position: fixed;
     bottom:0;
     left:0;
     right:0;
-    z-index: 2;
+    z-index: 5;
     background: #fff;
     padding: .208333rem;
 

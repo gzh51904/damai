@@ -1,8 +1,8 @@
 <template>
-<div class="recom">
+<div class="recom" style="background-color: #fff;">
     <div class="section-title">
         <div class="title-text" data-spm-anchor-id="a2o71.project.recommend.i0">为你推荐</div>
-        <!---->
+       
     </div>
     <div class="detail-suggest">
         <div>
@@ -263,7 +263,7 @@ export default {
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     justify-content: space-between;
-    margin: .64rem .4rem;
+    margin: 0rem .4rem;
     margin-bottom: .48rem;
 }
 
