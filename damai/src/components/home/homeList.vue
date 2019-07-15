@@ -26,32 +26,32 @@ export default {
           path: ""
         },
         {
-          imgurl: "/home-list1.jpg",
+          imgurl: "/home-list3.jpg",
           title: "音乐会",
           path: ""
         },
         {
-          imgurl: "/home-list2.jpg",
+          imgurl: "/home-list4.jpg",
           title: "体育",
           path: ""
         },
         {
-          imgurl: "/home-list1.jpg",
+          imgurl: "/home-list5.jpg",
           title: "曲苑杂坛",
           path: ""
         },
         {
-          imgurl: "/home-list2.jpg",
+          imgurl: "/home-list6.jpg",
           title: "亲子",
           path: ""
         },
         {
-          imgurl: "/home-list1.jpg",
+          imgurl: "/home-list7.jpg",
           title: "展览休闲",
           path: ""
         },
         {
-          imgurl: "/home-list2.jpg",
+          imgurl: "/home-list8.jpg",
           title: "境外",
           path: ""
         }
@@ -59,17 +59,18 @@ export default {
     }
   },
   created(){
-    // let xhr = new XMLHttpRequest();
-    // xhr.open("get","http://v.juhe.cn/sms/send",true);
-    // xhr.send();
-    // xhr.onreadystatechange = function(){
-    //   if(xhr.readyState == 4) {
-    //     if (xhr.status == 200) {
-    //         /*[5] 解析服务器返回的数据*/
-    //         console.log("haha",xhr.responseText);
-    //     }
-    //   }
-    //  }
+    // this.$axios.get("/").then((res)=>{console.log(res)})
+    let xhr = new XMLHttpRequest();
+    xhr.open("get","/",true);
+    xhr.send();
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4) {
+        if (xhr.status == 200) {
+            /*[5] 解析服务器返回的数据*/
+            console.log("haha",xhr.responseText);
+        }
+      }
+     }
     // console.log(obj);
     this.list.forEach((item)=>{
       item.imgurl = require("../../assets/img" + item.imgurl)
@@ -87,6 +88,7 @@ ul,li{
   justify-content: space-around;
   flex-wrap: wrap;
   width: 100%;
+  padding: .48rem 0 .24rem;
 }
 .home-list .home-list-pre {
   display: block;
