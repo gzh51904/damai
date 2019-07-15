@@ -33,7 +33,8 @@
               </div>
             </div>
             <div class="login-telbox login-mobile-tel">
-              <input @click="loginchose('phone')" @blur="cleanlgchose('phone')" type="tel" class="login-tel" tabindex="1" placeholder="请输入手机号" ref="phonenum" v-model="logintel"> 
+              <input @click="loginchose('phone')" @blur="cleanlgchose('phone')" type="tel" class="login-tel" tabindex="1" placeholder="请输入手机号" ref="phonenum" v-model="logintel" autocomplete="on"> 
+              <i class="login-clearicon mui-icon mui-icon-close" :style="{'display':lgcleartelicon}" @click="clearlgicon('tel')"></i>
               <div class="login-underline">
                 <div class="login-lineshow"></div>
                 <div class="login-linehidden" ref="transitionphone"></div>
@@ -43,13 +44,14 @@
           <div class="login-field login-test">
             <div class="login-telbox">
               <input @click="loginchose('test')" @blur="cleanlgchose('test')" type="tel" class="login-tel" tabindex="2" placeholder="请输入验证码" maxlength="6" aria-label="请输入验证码" autocomplete="off" v-model="logintest">
+              <i class="login-clearicon login-cleartesticon mui-icon mui-icon-close" :style="{'display':lgcleartesticon}" @click="clearlgicon('test')"></i>
               <div class="login-underline">
                 <div class="login-lineshow"></div>
                 <div class="login-linehidden" ref="transitiontest"></div>
               </div>
             </div>
             <div class="login-send-btn">
-              <span class="login-send-link" @click.prevent="getverify">{{countdown}}</span>
+              <span class="login-send-link" @click.prevent="getverify(countdown)">{{countdown}}</span>
             </div>
           </div>
           <div class="login-lgbtn">
@@ -82,9 +84,14 @@ export default {
       choseadress:false,
       lgtelfalse:false,
       countdown:"获取验证码",
+      lgcleartelicon:"none",
+      lgcleartesticon:"none",
     };
   },
   methods: {
+    clearlgicon(val){
+      if(val == 'tel'){this.logintel = ""}else if(val == 'test'){this.logintest = ""}
+    },
     choseadresscap(){
       this.choseadress = !this.choseadress;
     },
@@ -113,7 +120,8 @@ export default {
     goto(val){
       this.$router.push(val);
     },
-    getverify() {
+    getverify(val) {
+      if(val != "获取验证码") return;
       if (!(/^1[3-9]\d{9}$/).test(this.logintel)) {
         // 请输入正确的手机号
         this.lgtelfalse = true;
@@ -165,6 +173,10 @@ export default {
     }},
     loginchangecap() {}
   },
+  updated(){
+    if(this.logintel){this.lgcleartelicon = "block"}else if(!this.logintel){this.lgcleartelicon = "none"};
+    if(this.logintest){this.lgcleartesticon = "block"}else if(!this.logintest){this.lgcleartesticon = "none"}
+  }
 };
 </script>
 
@@ -330,6 +342,15 @@ export default {
 }
 .login-mobile-tel .login-tel{
   padding-left: 80px;
+}
+.login-telbox .login-clearicon{
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  font-size: 23px;
+}
+.login-telbox .login-cleartesticon{
+  right: 90px;
 }
 .login-underline{
   position: relative;

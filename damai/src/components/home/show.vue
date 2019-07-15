@@ -31,38 +31,14 @@ export default {
         return {
             showdate:[1,2,3,4,5,6,7],
             showlist:[
-                {
-                    url:"",
-                    title:"",
-                    price:"",
-                },
-                {
-                    url:"",
-                    title:"",
-                    price:"",
-                },
-                {
-                    url:"",
-                    title:"",
-                    price:"",
-                },
-                {
-                    url:"",
-                    title:"",
-                    price:"",
-                },
-                {
-                    url:"",
-                    title:"",
-                    price:"",
-                },
+               
             ],
             showselected: 0,
         }
     },
     created(){
         let time = new Date();
-        let week = time.getDay()
+        let week = time.getDay();
         let weekarr = [];
         this.showdate = [{day:week,title:"今天",index:0},{day:(week + 1) % 7,title:"明天",index:1}];
         for(let i = week + 2,j = 2;i < week + 7;i++,j++){
@@ -91,12 +67,15 @@ export default {
                 break;
             }
         }
+        this.$axios.get("/getgoodslist").then((res)=>{console.log(res)});
     },
     methods:{
-        changeshowday(val1,val2){
-            this.showselected = val1;
-            // Axios.get("",)
-        }
+        // changeshowday(val1,val2){
+        //     this.showselected = val1;
+        //     this.$axios.get("/getgoodslist").then(res){
+        //         console.log(res);
+        //     }
+        // }
     },
 }
 </script>

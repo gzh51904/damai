@@ -25,7 +25,7 @@
                 </ul>
             </div>
             <ul class="more-content">
-                <li v-for="(item,i) in moreimg" :key="i">
+                <li v-for="(item,i) in moreimg" :key="i" @click="todetail('/detail',item.id)">
                   <div class="more-content-list">
                     <div class="more-content-imgbox">
                         <img :src="item.moreurl" alt="" class="more-content-img">
@@ -57,27 +57,35 @@ export default {
           moretitle: "invoker",
           moreadress: "在那漆黑的无知志海上，吾乃闪耀的知识灯塔",
           morehas: "可选座",
-          moreprice: "￥100-880"
+          moreprice: "￥100-880",
+          id:"",
         },
         {
           moreurl: "",
           moretitle: "invoker",
           moreadress: "在那漆黑的无知志海上，吾乃闪耀的知识灯塔",
           morehas: "",
-          moreprice: "￥100-880"
+          moreprice: "￥100-880",
+          id:"",
         },
         {
           moreurl: "",
           moretitle: "invoker",
           moreadress: "在那漆黑的无知志海上，吾乃闪耀的知识灯塔",
           morehas: "可选座",
-          moreprice: "￥100-880"
+          moreprice: "￥100-880",
+          id:"",
         }
       ]
     };
   },
   methods:{
-
+    todetail(name,val){
+      this.$router.push({
+        name,
+        params:val,
+      })
+    }
   },
   mounted() {
     this.moreimg.forEach((item,i)=>{

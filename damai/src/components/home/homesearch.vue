@@ -69,10 +69,10 @@ export default {
             let arr = JSON.parse(localStorage.getItem("history")) || [];
             for(var i = 0,len = arr.length;i < len;i++){
                 if(arr[i].name == val.name){break}
-            };
+            }
             if(i >= len){
                 arr.push(val);
-            };
+            }
             this.history = arr;
             localStorage.setItem("history",JSON.stringify(arr));
             this.hssearch = val.name;
