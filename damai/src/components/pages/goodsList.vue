@@ -1,32 +1,34 @@
 <template>
   <div class="box" ref="scrollHeader">
     <div class="headers">
-      <div class="over">
-        <div class="toul" ref="idname">
-          <ul class="ullist">
-            <li v-for="item in navList" :key="item.name" ref="list">
-              <a
-                @click="changeactive(item.name,item.id)"
-                :class="{activeColor:item.name===active00}"
-                :id="item.name"
-              >{{item.title}}</a>
-            </li>
-          </ul>
+      <div>
+        <div class="over">
+          <div class="toul" ref="idname">
+            <ul class="ullist">
+              <li v-for="item in navList" :key="item.name" ref="list">
+                <a
+                  @click="changeactive(item.name,item.id)"
+                  :class="{activeColor:item.name===active00}"
+                  :id="item.name"
+                >{{item.title}}</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="selectcity">
-        <getitem></getitem>
+        <div class="selectcity">
+          <getitem></getitem>
+        </div>
       </div>
     </div>
     <div class="main">
-      <router-view></router-view>
+      <getall></getall>
     </div>
   </div>
 </template>
 
 <script>
 import getitem from "./getItem.vue";
-// import getall from "./getall.vue";
+import getall from "./getall.vue";
 export default {
   data() {
     return {
@@ -155,12 +157,10 @@ export default {
       // this.$refs.scrollHeader.scrollTop = 2000;
     }
   },
-  created() {
-    this.$router.replace({ path: "/goodslist/getall" });
-  },
+  created() {},
   components: {
-    getitem
-    // getall
+    getitem,
+    getall
   }
 };
 </script>
@@ -171,12 +171,7 @@ export default {
   padding: 0;
 }
 .box {
-  position: fixed;
   overflow: auto;
-  top: 0px;
-  width: 0px;
-  height: 100%;
-  width: 100%;
 }
 ul li {
   list-style: none;
@@ -185,9 +180,6 @@ a {
   font-size: 43px;
 }
 .main {
-  position: absolute;
-  top: 106;
-  width: 100%;
   margin-top: 106px;
   z-index: -10;
   background-color: #ffffff;
@@ -200,23 +192,19 @@ a {
   position: relative;
 }
 .headers {
-  position: fixed;
-  height: 55.91px;
-  top: 0px;
-  left: 0px;
   overflow: auto;
   width: 10rem;
   background-color: #ffffff;
 }
 .headers .toul {
   overflow: auto;
-  /* position: relative; */
+  position: relative;
   background-color: #ffffff;
 }
 .headers .over {
   height: 1.527778rem;
   overflow: hidden;
-  /* position: fixed; */
+  position: fixed;
   z-index: 10999999999990 !important;
   /* position: absolute; */
   left: 0px;

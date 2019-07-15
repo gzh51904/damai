@@ -59,21 +59,20 @@ export default {
     },
     methods:{
         goback(){
-            this.$router.push("/home")
+            this.$router.push("/home");
         },
         cancle(){
             localStorage.clear();
             this.history = [];
         },
         searchhistory(val){
-            console.log(val);
             let arr = JSON.parse(localStorage.getItem("history")) || [];
             for(var i = 0,len = arr.length;i < len;i++){
                 if(arr[i].name == val.name){break}
-            };
+            }
             if(i >= len){
                 arr.push(val);
-            };
+            }
             this.history = arr;
             localStorage.setItem("history",JSON.stringify(arr));
             this.hssearch = val.name;
@@ -84,6 +83,10 @@ export default {
             },500)
         }
     },
+    created(){
+        let arr = JSON.parse(localStorage.getItem("history")) || [];
+        this.history = arr;
+    }
 }
 </script>
 

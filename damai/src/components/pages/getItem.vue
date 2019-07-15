@@ -1,31 +1,29 @@
 <template>
   <div>
     <ul class="getcityandtime">
-      <li @click="showthecity('city')" v-bind:class="{activeColor:activate=='city'&&cityactive}">
+      <li @click="showthecity('city')">
         广州
         <span></span>
       </li>
-      <li @click="showthecity('time')" v-bind:class="{activeColor:activate=='time'&&timeactive}">
+      <li @click="showthecity('time')" class="timepick">
         时间
         <span></span>
       </li>
-      <li @click="showthecity('best')" v-bind:class="{activeColor:activate=='best' &&bestactive}">
+      <li @click="showthecity('best')">
         推荐排序
         <span></span>
       </li>
-      <li
-        @click="showthecity('lanch')"
-        v-bind:class="{activeColor:activate=='lanch' &&lanchactive}"
-      >
+      <li @click="showthecity('lanch')">
         最近
         <span></span>
       </li>
     </ul>
-    <div class="showallcity" v-if="cityactive||bestactive||lanchactive||timeactive">
+    <div class="showallcity">
       <getcity v-if="cityactive"></getcity>
 
-      <gettime v-if="timeactive"></gettime>
-
+      <div class="tofixed">
+        <gettime v-if="timeactive"></gettime>
+      </div>
       <getbest v-if="bestactive"></getbest>
 
       <getdingwei v-if="lanchactive"></getdingwei>
@@ -44,14 +42,11 @@ export default {
       cityactive: false,
       bestactive: false,
       lanchactive: false,
-      timeactive: false,
-      activate: "city"
+      timeactive: false
     };
   },
   methods: {
     showthecity(name) {
-      this.activate = name;
-
       document.documentElement.scrollTop = 0;
       //城市切换
       if (name == "city") {
@@ -129,17 +124,15 @@ export default {
   position: fixed;
   width: 100%;
   background-color: #ffffff;
-  height: 100px;
 }
 .getcityandtime {
-  background-color: #f5f5f5;
+  background-color: #d1d1d1;
   display: flex;
   width: 100%;
   height: 1.287037rem;
   align-content: center;
   position: fixed;
   z-index: 9999999999999;
-  top: 56px;
 }
 .getcityandtime li {
   flex: 1;
@@ -158,13 +151,11 @@ export default {
   border-color: black transparent transparent;
 }
 .showallcity {
-  position: fixed;
+  position: relative;
   overflow: auto;
   z-index: 100;
-  top: 105px;
-  height: 619px;
-  width: 100%;
-  /* background-color: #ffffff; */
+  top: 48px;
+  background-color: #ffffff;
 }
 .timepick {
   /* width: 2.5rem !important;
@@ -179,8 +170,5 @@ export default {
   position: absolute;
   width: 100% !important;
   height: 100% !important;
-}
-.activeColor {
-  color: #fb0c5d;
 }
 </style>

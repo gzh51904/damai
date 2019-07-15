@@ -1,5 +1,5 @@
 <template>
-  <div class="citybox" ref="cityscroll">
+  <div class="citybox">
     <div>
       <div class="dingwei">
         <div class="box-div">定位城市</div>
@@ -10,13 +10,11 @@
         <ul>
           <li
             class="box-span"
-            @click="selectcity(item.idx)"
+            @click="selectcity(item.name)"
             v-for="item in hotcity"
             :key="item.name"
-            :class="{redColor:item.idx==selectcolor}"
-          >
-            <router-link to="/getall">{{item.name}}</router-link>
-          </li>
+            :class="{redColor:item.name==selectcolor}"
+          >{{item.name}}</li>
         </ul>
       </div>
       <div class="onecity">
@@ -47,53 +45,41 @@ export default {
     return {
       hotcity: [
         {
-          name: "全国",
-          idx: "quanguo"
+          name: "全国"
         },
         {
-          name: "境外",
-          idx: "forlign"
+          name: "境外"
         },
         {
-          name: "北京",
-          idx: "bejing"
+          name: "北京"
         },
         {
-          name: "上海",
-          idx: "shanghai"
+          name: "上海"
         },
         {
-          name: "深圳",
-          idx: "shenzhen"
+          name: "深圳"
         },
         {
-          name: "广州",
-          idx: "guanzghou"
+          name: "广州"
         },
         {
-          name: "杭州",
-          idx: "hangzhou"
+          name: "杭州"
         },
         {
-          name: "天津",
-          idx: "tianjian"
+          name: "天津"
         },
         {
-          name: "重庆",
-          idx: "chongqing"
+          name: "重庆"
         },
         {
-          name: "成都",
-          idx: "chengdu"
+          name: "成都"
         },
         {
-          name: "西安",
-          idx: "xian"
+          name: "西安"
         },
 
         {
-          name: "香港",
-          idx: "xianggang"
+          name: "香港"
         }
       ],
       cityA: [{ name: "安庆" }, { name: "鞍山" }, { name: "澳门" }],
@@ -109,39 +95,27 @@ export default {
       cityC: [{ name: "长春" }, { name: "长沙" }, { name: "常德" }],
       cityD: [{ name: "安庆" }, { name: "安庆" }, { name: "安庆" }],
       cityE: [{ name: "安庆" }, { name: "安庆" }, { name: "安庆" }],
-      selectcolor: "guanzghou"
+      selectcolor: "广州"
     };
   },
   methods: {
     selectcity(name) {
       this.selectcolor = name;
-
-      this.$router.replace({
-        name: "getall",
-        params: { id: 1 }
-      });
-
-      // this.$router.push({name:'Goods',params:{id}})
     }
   }
 };
 </script>
 
 <style  scoped>
-a {
-  color: black;
-}
 .citybox {
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: -1px;
-  left: 0;
+  position: relative;
   overflow: auto;
   flex-direction: column;
   /* border: 1px solid red; */
   background-color: #ffffff;
-  z-index: 9999999999999999999999;
+  z-index: -10;
 }
 
 .box-span {
@@ -161,7 +135,7 @@ a {
   height: 0.703704rem;
   font-size: 0.324074rem;
   line-height: 0.703704rem;
-  background-color: #f5f5f5;
+  background-color: #c7c7c7;
   padding-left: 0.277778rem;
 }
 .box-li {

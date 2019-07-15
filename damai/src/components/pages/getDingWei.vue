@@ -27,7 +27,6 @@ export default {
   height: 100%;
   position: fixed;
   overflow: auto;
-  top: 104px;
   flex-direction: column;
 }
 

@@ -146,7 +146,7 @@ export default {
         background-position: top center;
         border-radius: 100%;
         border: .04rem solid #fff;
-        background: url("../../assets/mine-hd.png");
+        background: url("../../assets/img/mine-hd.png");
     }
     .mine-name{
     flex: 1;

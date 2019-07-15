@@ -1,5 +1,5 @@
-module.exports = {
-    css: {
-
+module.exports={
+    css:{
+       
     }
 }

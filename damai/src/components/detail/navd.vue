@@ -1,6 +1,6 @@
 <template>
-  <el-tabs v-model="activeName" @tab-click="handleClick"  class="navigation" >
-    <el-tab-pane label="详情"  name="first"><information></information></el-tab-pane>
+  <el-tabs v-model="activeName" @tab-click="handleClick" style="background-color: #fff;" class="navigation" >
+    <el-tab-pane label="详情"   name="first"><information></information></el-tab-pane>
     <el-tab-pane label="须知"  name="second"><attention></attention></el-tab-pane>
     <el-tab-pane label="推荐"  name="third"><recommend></recommend></el-tab-pane>  
   </el-tabs>
@@ -35,6 +35,7 @@ import recommend from './recommend.vue';
 <style scoped>
 
 .navigation{
+  
   /* display:flex !important; */
   /* flex-direction:column !important; */
   /* justify-content:space-around !important; */

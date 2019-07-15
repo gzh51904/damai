@@ -1,7 +1,7 @@
 <template>
-<div id="info" style="height:1000px">
+<div id="info" style="background-color: #fff;">
     <h2 class="title" style="
-    margin-top:.791667rem;
+    margin-top:0rem;
     margin-bottom:.791667rem;
     font-size: .58667rem;
     color: #000;
@@ -21,19 +21,19 @@
 
     <p> 艺人阵容：周杰伦、范丞丞、梁博、袁咏琳、Supper Moment乐团等。</p>
 
-    <img src="../../img/zr.png">
-    <img src="../../img/zj.png"><br />
+    <img src="../../assets/img/zr.png">
+    <img src="../../assets/img/zj.png"><br />
     <span>周杰伦</span>
-    <img src="../../img/f.png"><br />
+    <img src="../../assets/img/f.png"><br />
     <span>范丞丞</span>
 
-    <img src="../../img/lb.png">
+    <img src="../../assets/img/lb.png">
     <span>梁&nbsp;&nbsp;博</span>
 
-    <img src="../../img/yl.png"><br />
+    <img src="../../assets/img/yl.png"><br />
     <span>袁咏琳</span>
 
-    <img src="../../img/zhh.png"><br />
+    <img src="../../assets/img/zhh.png"><br />
     <span>Supper Moment乐团</span>
     <hr />
     <h2 class="title" style="
@@ -44,17 +44,17 @@
         font-weight: 700;">演职人员</h2>
     <div class="name-info">
         <dl>
-            <dt><img src="../../img/f2.png"></dt>
+            <dt><img src="../../assets/img/f2.png"></dt>
             <dd class="name">范丞丞</dd>
             <dd>歌手</dd>
         </dl>
         <dl>
-            <dt><img src="../../img/z2.png"></dt>
+            <dt><img src="../../assets/img/z2.png"></dt>
             <dd class="name">周杰伦</dd>
             <dd>歌手</dd>
         </dl>
         <dl>
-            <dt><img src="../../img/l3.png"></dt>
+            <dt><img src="../../assets/img/l3.png"></dt>
             <dd class="name">梁博</dd>
             <dd>歌手</dd>
         </dl>
@@ -74,9 +74,6 @@ export default {
 </script>
 
 <style scoped>
-/* #info{
-margin-top:3.4rem;
-} */
 #info h3{
     
     font-size: 100%;
@@ -101,12 +98,9 @@ margin-top:3.4rem;
 
 #info dl dd {
     font-size: .25rem;
-    /* margin-left:.277778rem; */
+    
     text-align:center;
 
 }
-#info>img{
-    /* width:4.861111rem;
-    height:7.097222rem; */
-}
+
 </style>
