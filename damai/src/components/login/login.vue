@@ -8,31 +8,32 @@
         <form id="login-form" class="login-form">
           <div class="login-mobile login-field">
             <div class="login-capbox">
-              <div class="login-cap">             
+              <div class="login-cap" @click="choseadresscap">             
                 +86
                 <i class="login-cap-icon mui-icon mui-icon-arrowdown"></i>               
               </div>
-              <div class="login-cap-pick">
+              <div class="login-cap-pick" v-show="choseadress">
                 <div class="login-pick-mask">
                 </div>
                 <div class="login-pick-model">
                   <div class="login-model-head">
-                    <a href="" class="login-model-btn">取消</a>
-                    <a href="" class="login-model-btn">确定</a>
+                    <span class="login-model-btn">取消</span>
+                    <span class="login-model-btn login-model-rbtn">确定</span>
                   </div>
                   <div class="login-model-content">
                     <div class="login-model-bigbox">
                       <ul class="login-model-listbox"> 
-                        <li class="login-model-list"></li>
+                        <li class="login-model-list" v-for="(item,i) in adress" :key="i">{{item.cap}} {{item.title}}</li>
                       </ul>
+                      <div class="login-model-highlight"></div>
                     </div>
-                    <div class="login-model-highlight"></div>
+                    
                   </div>
                 </div>
               </div>
             </div>
             <div class="login-telbox login-mobile-tel">
-              <input @click="loginchose('phone')" @blur="cleanlgchose('phone')" type="tel" class="login-tel" tabindex="1" placeholder="请输入手机号"/>
+              <input @click="loginchose('phone')" @blur="cleanlgchose('phone')" type="tel" class="login-tel" tabindex="1" placeholder="请输入手机号" ref="phonenum" v-model="logintel"> 
               <div class="login-underline">
                 <div class="login-lineshow"></div>
                 <div class="login-linehidden" ref="transitionphone"></div>
@@ -41,14 +42,14 @@
           </div>
           <div class="login-field login-test">
             <div class="login-telbox">
-              <input @click="loginchose('test')" @blur="cleanlgchose('test')" type="tel" class="login-tel" tabindex="2" placeholder="请输入验证码" maxlength="6" aria-label="请输入验证码" autocomplete="off"/>
+              <input @click="loginchose('test')" @blur="cleanlgchose('test')" type="tel" class="login-tel" tabindex="2" placeholder="请输入验证码" maxlength="6" aria-label="请输入验证码" autocomplete="off" v-model="logintest">
               <div class="login-underline">
                 <div class="login-lineshow"></div>
                 <div class="login-linehidden" ref="transitiontest"></div>
               </div>
             </div>
             <div class="login-send-btn">
-              <a href="" class="login-send-link">获取验证码</a>
+              <span class="login-send-link" @click.prevent="getverify">获取验证码</span>
             </div>
           </div>
           <div class="login-lgbtn">
@@ -59,6 +60,7 @@
             <a href="#/register" class="login-newreg">新用户注册</a>
           </div>
         </form>
+        <div class="login-send-teltest" v-show="lgtelfalse">请输入正确的手机号</div>
       </div>
     </div>
   </div>
@@ -76,10 +78,15 @@ export default {
       ],
       cap: "+86",
       logintel: "",
-      loginest: "",
+      logintest: "",
+      choseadress:false,
+      lgtelfalse:false,
     };
   },
   methods: {
+    choseadresscap(){
+      this.choseadress = !this.choseadress;
+    },
     cleanlgchose(val){
       if(val == "test"){
         this.$refs.transitiontest.style.width = 0;     
@@ -106,10 +113,18 @@ export default {
       this.$router.push(val);
     },
     getverify() {
-      if (!new RegExp("^1[3-9]d{9}&").test(this.logintel)) {
+      if (!(/^1[3-9]\d{9}$/).test(this.logintel)) {
         // 请输入正确的手机号
-      }
-      function getRandomVal() {
+        this.lgtelfalse = true;
+        this.$refs.phonenum.focus();
+        this.$refs.transitionphone.style.width = "100%";
+        this.$refs.transitionphone.style.display = "block";
+        setTimeout(()=>{
+          this.lgtelfalse = false;
+        },1000)
+
+      }else{
+        function getRandomVal() {
         let arr = [],
           arr1 = [],
           randomStr = "";
@@ -130,24 +145,21 @@ export default {
         return randomStr;
       }
       let randomStrGet = getRandomVal();
-      let randomStrSend = encodeURIComponent(randomStrSend);
-      // axios.get("http://v.juhe.cn/sms/send", {
-      //   params: {
-      //     mobile: this.logintel,
-      //     tpl_id: 171855,
-      //     tpl_val:randomStrSend,
-      //     key:"83e8680d7ea9cf3f3c8608610407cc07",
-      //   }
-      // });
-      // let endTime = Date.now() + 60*1000;
-      // let countDown = setInterval(()=>{
-      //     // this.$refs.getverify.innerText =
-      //     let currentTime = Date.now();
-      //     if(currentTime >= endTime){
+      let script = document.createElement("script");
+      script.src = `http://v.juhe.cn/sms/send?mobile=${this.logintel}&tpl_id=171855&tpl_value=%23code%23%3D${randomStrGet}&key=83e8680d7ea9cf3f3c8608610407cc07`;
+      document.body.appendChild(script);
+      document.body.removeChild(document.body.lastChild);
+      let endTime = Date.now() + 60*1000;
+      let countDown = setInterval(()=>{
+          // this.$refs.getverify.innerText =
+          let currentTime = Date.now();
+          if(currentTime >= endTime){
 
-      //     }
-      // },1000)
-    },
+          }
+      },1000)
+
+      
+    }},
     loginchangecap() {}
   },
 };
@@ -217,12 +229,15 @@ export default {
 .login-pick-model{
   background-color: #fff;
   z-index: 2;
-  transform: translateY(100%);
-  transition: transform .3s;
+  /* transform: translateY(100%); */
+  /* transition: transform .3s; */
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
+}
+.login-model-rbtn{
+  text-align: right;
 }
 .login-model-head{
   background-color: #fff;
@@ -259,6 +274,18 @@ export default {
 .login-model-listbox{
   height: 36px;
   line-height: 36px;
+  transform: translate3d(0px, 90px, 0px);
+}
+.login-model-list{
+  height: 36px;
+  line-height: 36px;
+  position: relative;
+  font-size: 14px;
+  padding: 0 10px;
+  white-space: nowrap;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .login-input{
   position: relative;
@@ -278,6 +305,9 @@ export default {
   top: 50%;
   left: 0;
   width: 100%;
+  border: 1px solid #d9d9d9;
+  border-left: none;
+  border-right:none;
   pointer-events: none;
 }
 .login-telbox{
@@ -381,13 +411,29 @@ export default {
   display: inline-block;
 }
 .login-blocks:after {
-    clear: both;
-    visibility: hidden;
-    font-size: 0;
-    height: 0;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
 }
 .login-blocks:after, .login-blocks:before {
-    content: " ";
-    display: table;
+  content: " ";
+  display: table;
+}
+.login-send-teltest{
+  position: fixed;
+  display: table;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  min-width: 100px;
+  max-width: 240px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: rgba(0,0,0,.6);
+  transform: translate(-50%,-50%);
+  z-index: 1000;
 }
 </style>

@@ -3,8 +3,26 @@
         <div class="reg-show">
             <div class="reg-list">
                 <mt-cell title="国家地区" is-link>
-                    <span style="color: green">{{cap}}</span>
+                    <span style="color: green">{{regcap}}</span>
                 </mt-cell>
+                <div class="login-cap-pick" v-show="choseadress">
+                    <div class="login-pick-mask">
+                    </div>
+                    <div class="login-pick-model">
+                        <div class="login-model-head">
+                            <span class="login-model-btn">取消</span>
+                            <span class="login-model-btn login-model-rbtn">确定</span>
+                        </div>
+                        <div class="login-model-content">
+                            <div class="login-model-bigbox">
+                            <ul class="login-model-listbox"> 
+                                <li class="login-model-list" v-for="(item,i) in regadress" :key="i">{{item.cap}} {{item.title}}</li>
+                            </ul>
+                            <div class="login-model-highlight"></div>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
                 <div class="reg-tel reg-item">
                     <input type="text" placeholder="请输入手机号">
                 </div>
@@ -47,13 +65,13 @@ Vue.component(Cell.name, Cell);
 export default {
   data() {
     return {
-        adress:[
+        regadress:[
             {title:"中国大陆",cap:"+86"},
             {title:"中国香港",cap:"+852"},
             {title:"中国澳门",cap:"+853"},
             {title:"中国台湾",cap:"+886"},
         ],
-        cap:"+86",
+        regcap:"+86",
         regtel: "",
         regtest: "",
     };

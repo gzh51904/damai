@@ -76,10 +76,13 @@ export default {
       ]
     };
   },
-    mounted() {
-      this.moreimg.forEach((item,i)=>{
-          item.moreurl = require("../../assets/img/moreimg1.jpg")
-      })
+  methods:{
+
+  },
+  mounted() {
+    this.moreimg.forEach((item,i)=>{
+        item.moreurl = require("../../assets/img/moreimg1.jpg")
+    })
   }
 };
 </script>
