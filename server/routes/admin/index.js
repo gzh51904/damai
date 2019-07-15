@@ -31,6 +31,11 @@ module.exports = (app) => {
 		res.send(items)
 	})
 
+
+
+
+
+
 	//通过id获取数据
 	router.get('/:id', async (req, res) => {
 		const model = await req.model.findById(req.params.id)
@@ -146,6 +151,14 @@ module.exports = (app) => {
 
 
 
+	//浏览器查询分类接口
+	app.get('/admin/api/getgoodslist', async (req, res) => {
+		const Item = require("../../model/Item")
+		const items = await Item.find()
+		console.log(items);
+
+		res.send(items)
+	})
 
 
 

@@ -9,7 +9,7 @@
             :key="item.id"
             @click="changeactive(item.id)"
           >
-            {{item.title}}
+            <router-link to="/getall">{{item.title}}</router-link>
             <i class="el-icon-check dagou" v-if="dagouAct==item.id"></i>
           </li>
         </ul>
@@ -43,18 +43,33 @@ export default {
   methods: {
     changeactive(id) {
       this.dagouAct = id;
+      console.log("跳转", id);
+
+      this.$router.push({
+        // path: "/goodslist/getall",
+        // query: { id: id }
+        name: "getall",
+        params: { id }
+      });
     }
   }
 };
 </script>
 
 <style  scoped>
+a {
+  color: black;
+}
 .citybox {
   width: 100%;
   height: 100%;
   position: fixed;
+  top: 104px;
   overflow: auto;
   flex-direction: column;
+}
+.onecity {
+  top: 0px;
 }
 .onecity ul {
   background-color: #ffffff;

@@ -22,17 +22,58 @@ export default {
       goodsList: []
     };
   },
+  // computed: {
+  //   queryID() {
+  //     return this.$route.query.id;
+  //   }
+  // },
+  // //监听执行
+  // watch: {
+  //   queryID(nv, ov) {
+  //     console.log("nv==ov", ov, nv);
+  //     // this.userAddressLIst = nv;
+  //     if (queryId == 1) {
+  //       this.goodsList = data;
+  //     } else if (queryId == 2) {
+  //       var arr2 = data.reverse();
+  //       this.goodsList = arr2;
+  //     } else if (queryId == 3) {
+  //     }
+  //   }
+  // },
   async created() {
+    console.log(this.$route.params);
+    let queryId = this.$route.params.id;
     //   获取传入id
 
     // 发起ajax请求，获取商品信息
     let { data } = await this.$axios.get(
-      "http://localhost:9001/admin/api/rest/categories"
+      "http://localhost:9001/admin/api/getgoodslist"
     );
+    let aaa = data[0].venueName.trim().split(" ");
+    console.log(aaa[0]);
+    let seldate = new Date(aaa[0]);
+    console.log(seldate.getTime());
 
     this.goodsList = data;
+    if (queryId == 2) {
+      var arr2 = data.reverse();
+      this.goodsList = arr2;
+    } else if (queryId == 3) {
+      let arrDate = [];
+      let oneData = 1000000000000000000000000000000000;
+      data.forEach(item => {
+        let aaa = item.venueName.trim().split(" ");
+        // console.log(aaa[0]);
+        let seldate = new Date(aaa[0]);
 
-    // //  隐藏菜单
+        if (seldate < oneData) {
+          oneData = seldate;
+          arrDate.unshift(item);
+        }
+      });
+      this.goodsList = arrDate;
+    }
   }
 };
 </script>
@@ -64,11 +105,10 @@ i > img {
 .mains .sp01 {
   font-size: 0.296296rem;
   color: #aaaaaa;
-  line-height: 0.833333rem;
+  /* line-height: 0.833333rem; */
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .sp02 {
   font-size: 0.268519rem;

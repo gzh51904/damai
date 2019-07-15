@@ -150,6 +150,9 @@ export default {
 
 <style  scoped>
 .timebox {
+  position: fixed;
+  width: 100%;
+  top: 104px;
   z-index: 999999999999999999999;
   background-color: #fff;
 }
@@ -324,10 +327,10 @@ export default {
 }
 .black {
   background-color: rgb(110, 110, 110);
-  height: 428px;
+  height: 294px;
   width: 100%;
   opacity: 0.6;
-  position: relative;
-  top: 231px;
+  position: absolute;
+  top: 346px;
 }
 </style>

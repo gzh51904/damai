@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-import'./rem/rem.js'
+import './rem/rem.js'
 //引入
-import router from './routers'
+import router from './router'
 
 import store from './store'
 import axios from 'axios'
