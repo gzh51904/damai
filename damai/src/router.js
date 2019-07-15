@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import detail from './components/detail/detail.vue'; 
 
 import goodsList from './components/pages/goodsList.vue'
 import carts from './components/carts/carts.vue'
@@ -76,7 +77,13 @@ export default new Router({
           path: 'addnewaddress',
           component: addNewAddress,
         }]
-      } 
+      } ,
+    {
+      //当浏览器地址为#/detail时，渲染detail组件、同下
+      name:'Detail',
+  path: '/detail',
+  component: detail
+} 
   ]
 })
 

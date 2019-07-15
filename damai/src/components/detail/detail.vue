@@ -3,7 +3,7 @@
     <div class="box">
         <div class="bgimg">
             <div class="pic_l">
-                <img src="../../img/head2.png" class="pic_l1">
+                <img src="../../assets/img/head2.png" class="pic_l1">
             </div>
             <div class="text_r">
                 <div class="text_name">【北京】2019爱奇艺尖叫之夜演唱会北京站</div>
@@ -52,17 +52,17 @@
         <p> <span @click="hide1"></span></p>
         <div class="time-info">
             <h4>场次<span>场次时间均为演出当地时间</span></h4>
-            <mt-button type="danger" size="large" style="background:pink; color:red">2019-08-04 周日 19：00</mt-button>
+            <mt-button type="danger"  style="background:pink; color:red">2019-08-04 周日 19：00</mt-button>
         </div>
         <div class="ticket-level">
             <h4>票档</h4>
             <div class="ticket-btn">
-                <mt-button type="danger" @click="choose" :class="{show:activecolor}" style="background:#F5F5F5; margin-bottom:15px; margin-left:10px;">看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;580</mt-button>&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5;">看&nbsp;台&nbsp;880</mt-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5; margin-left:10px;">看台1280</mt-button>&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5;">看台1680</mt-button>&nbsp;&nbsp;&nbsp;
-                <mt-button type="danger" style="background:#F5F5F5;">场地2019</mt-button>
+                <mt-button type="danger" @click="choose" :class="{show:activecolor}" style="background:#eee; color:#111; margin-bottom:15px; margin-left:10px;">看&nbsp;台&nbsp;380</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111;" >看&nbsp;台&nbsp;580</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111;">看&nbsp;台&nbsp;880</mt-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111; margin-left:0.2rem">看台1280</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111;">看台1680</mt-button>&nbsp;&nbsp;&nbsp;
+                <mt-button type="danger" style="background:#eee; color:#111;">场地2019</mt-button>
             </div>
         </div>
 
@@ -75,7 +75,7 @@
                     </div>
                     
                 </div>
-                <div class="button button common normal" >
+                <div class="button button common normal" @click="turn("./buyinfo")" >
                     确定
                 </div>
             </div>
@@ -162,7 +162,7 @@ export default {
        return {
         msg:false,
         msg1:false,
-         activecolor: false
+        activecolor: false
        } 
     },
     // 注册
@@ -183,8 +183,11 @@ export default {
         hide1(){
             this.msg1=false;
         },
-        choose(){
-        this.activecolor= true;
+        // choose(){
+        // this.activecolor= true;
+        // },
+        turn(val){
+        this.$router.push(val);
         }
         
     },
@@ -194,7 +197,7 @@ export default {
 <style scoped>
 .show{
     
-    background-color:red !important;
+    /* background-color:red !important; */
 }
 #app {
     /* height: 100%; */
@@ -213,7 +216,7 @@ export default {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-image: url(../../img/cover.jpg);
+    background-image: url(../../assets/img/cover.jpg);
     background-color: rgba(0, 0, 0, .4);
     background-size: cover;
     background-repeat: no-repeat;
@@ -265,7 +268,7 @@ export default {
     font-size: .416667rem;
     margin-left: .416667rem;
     padding-left: .516667rem;
-    background: url(../../img/gou.png) no-repeat left center;
+    background: url(../../assets/img/gou.png) no-repeat left center;
 }
 
 /* 服务信息隐藏显示 */
@@ -274,7 +277,7 @@ position: fixed;
     bottom:0;
     left:0;
     right:0;
-    z-index: 2;
+    z-index: 5;
     background: #fff;
     padding: .208333rem;
 
@@ -297,7 +300,7 @@ position: fixed;
     display: inline-block;
     height: .25rem;
     width: 2.319444rem;
-    background: url(../../img/cha1.png) no-repeat right center;
+    background: url(../../assets/img/cha1.png) no-repeat right center;
 
 }
 
@@ -310,7 +313,7 @@ position: fixed;
     font-size: .416667rem;
     margin-left: .416667rem;
     padding-left: .516667rem;
-    background: url(../../img/gou.png) no-repeat left center;
+    background: url(../../assets/img/gou.png) no-repeat left center;
 
 }
 
@@ -396,7 +399,7 @@ position: fixed;
 
 .time i {
     display: inline-block;
-    background: url(../../img/arror.png) no-repeat left center;
+    background: url(../../assets/img/arror.png) no-repeat left center;
     height: .277778rem;
     width: 2.480556rem;
     font-size: .416667rem;
@@ -432,7 +435,7 @@ position: fixed;
     display: inline-block;
     height: .25rem;
     width: 1.319444rem;
-    background: url(../../img/cha1.png) no-repeat 15px center;
+    background: url(../../assets/img/cha1.png) no-repeat 15px center;
 
 }
 
@@ -647,7 +650,7 @@ position: fixed;
 .location-right-icon {
     width: .53333rem;
     height: .53333rem;
-    background: url(../../img/location.jpg) no-repeat right;
+    background: url(../../assets/img/location.jpg) no-repeat right;
     background-size: contain;
     border-radius: 1.138889rem;
 
@@ -716,7 +719,7 @@ position: fixed;
 }
 /*------- 图标----- */
 .left1 .icon-home {
-    background-image: url(../../img/home.png);
+    background-image: url(../../assets/img/home.png);
 }
 
 .left__icon2 {
@@ -728,7 +731,7 @@ position: fixed;
     color: #888;
 }
 .left__icon-disfavor {
-    background-image: url(../../img/heart.png);
+    background-image: url(../../assets/img/heart.png);
 }
 .left__icon {
     width: .53333rem;

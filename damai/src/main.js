@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-import'./rem/rem.js'
+import'./assets/rem/rem.js'
 //引入
-import router from './routers'
+import router from './router'
 
 import store from './store'
 import axios from 'axios'
@@ -11,7 +11,7 @@ import axios from 'axios'
 
 //整体引入了mint-ui和mui-ui ElementUI
 import ElementUI from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css';
+import 'element-ui/lib/theme-chalk/index.css';
 
 
 Vue.use(ElementUI);
