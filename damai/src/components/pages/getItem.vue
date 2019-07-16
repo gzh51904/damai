@@ -51,12 +51,13 @@ export default {
     showthecity(name) {
       this.activate = name;
 
-      document.documentElement.scrollTop = 0;
+      // document.documentElement.scrollTop = 0;
+         console.log(document.documentElement.scrollTop);
       //城市切换
       if (name == "city") {
         this.cityactive = !this.cityactive;
 
-        console.log(document.documentElement.scrollTop);
+     
 
         if (this.bestactive == true) {
           this.bestactive = !this.bestactive;
