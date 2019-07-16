@@ -210,6 +210,9 @@ export default {
     }
   },
   async created() {
+    // document.body.scrollTop = 0;
+    console.log(document.body.scrollTop);
+
     let junpsId = this.$route.query.id;
 
     let { data } = await this.$axios.get(

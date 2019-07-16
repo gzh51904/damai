@@ -40,25 +40,25 @@ export default {
                 {
                     person:"周杰伦",
                     fans:"158.7",
-                    hofimg:"../../assets/hof1.jpg",
+                    hofimg:"/hof1.jpg",
                     show:"5",
                 },
                 {
                     person:"林俊杰",
                     fans:"108.2",
-                    hofimg:"../../assets/hof2.jpg",
+                    hofimg:"/hof2.jpg",
                     show:"3",
                 },
                 {
                     person:"薛之谦",
                     fans:"58.7",
-                    hofimg:"../../assets/hof3.jpg",
+                    hofimg:"/hof3.jpg",
                     show:"1",
                 },
                 {
                     person:"陈奕迅",
                     fans:"41.1",
-                    hofimg:"../../assets/hof4.jpg",
+                    hofimg:"/hof4.jpg",
                     show:"1",
                 }
             ],
@@ -67,7 +67,7 @@ export default {
     mounted(){
         this.hof.forEach((item,i)=>{
             // console.log(item,i,this.hof[i])
-            this.hof[i].hofimg = require(`../../assets/hof${i + 1}.jpg`);
+            this.hof[i].hofimg = require('../../assets/img' + item.hofimg);
         })
     },
     // updated(){

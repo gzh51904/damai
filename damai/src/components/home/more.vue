@@ -1,49 +1,46 @@
 <template>
-    <div>
-        <div class="more-top">
-            更多演出
-        </div>
-        <div class="more">
-            <div class="more-head">
-                <ul class="more-list-scroll">
-                    <li class="more-item-scroll">
-                        全部分类
-                        <i class="more-item-scroll-icon mui-icon mui-icon-arrowdown"></i>
-                        
-                    </li>
-                    <li class="more-item-scroll">
-                        全部时间
-                        <i class="more-item-scroll-icon mui-icon mui-icon-arrowdown"></i>
-                    </li>
-                    <li class="more-item-scroll-suv more-item-scroll">推荐排序</li>
-                    <li class="more-item-scroll-location more-item-scroll">距离最近</li>
-                </ul>
+  <div>
+    <div class="more-top">更多演出</div>
+    <div class="more">
+      <div class="more-head">
+        <ul class="more-list-scroll">
+          <li class="more-item-scroll" @click="moretolist">
+            全部分类
+            <i class="more-item-scroll-icon mui-icon mui-icon-arrowdown"></i>
+          </li>
+          <li class="more-item-scroll" @click="moretolist">
+            全部时间
+            <i class="more-item-scroll-icon mui-icon mui-icon-arrowdown"></i>
+          </li>
+          <li class="more-item-scroll-suv more-item-scroll" @click="moretolist">推荐排序</li>
+          <li class="more-item-scroll-location more-item-scroll">距离最近</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li v-for="(item,i) in morelist" :key="i"></li>
+        </ul>
+      </div>
+      <ul class="more-content">
+        <li v-for="(item,i) in morelist" :key="i" @click="todetail('/detail',item._id)">
+          <div class="more-content-list">
+            <div class="more-content-imgbox">
+              <img :src="item.icon" alt class="more-content-img" />
             </div>
-            <div>
-                <ul>
-                    <li v-for="(item,i) in morelist" :key="i"></li>
-                </ul>
+            <div class="more-content-right">
+              <div class="more-content-title">{{item.name}}</div>
+              <div class="more-content-adress">{{item.venueName}}</div>
+              <div class="more-content-has"></div>
+              <div class="more-content-pricebox">
+                <span class="more-content-price">{{item.price}}</span>
+              </div>
             </div>
-            <ul class="more-content">
-                <li v-for="(item,i) in moreimg" :key="i">
-                  <div class="more-content-list">
-                    <div class="more-content-imgbox">
-                        <img :src="item.moreurl" alt="" class="more-content-img">
-                    </div>
-                    <div class="more-content-right">
-                        <div class="more-content-title">{{item.moretitle}}</div>
-                        <div class="more-content-adress">{{item.moreadress}}</div>
-                        <div class="more-content-has">{{item.morehas}}</div>
-                        <div class="more-content-pricebox">
-                            <span class="more-content-price">{{item.moreprice}}</span>
-                        </div>
-                    </div>
-                  </div>
-                </li>
-                <div class="more-content-footer">-我也是有底线的-</div>
-            </ul>
-        </div>
+          </div>
+        </li>
+        <div class="more-content-footer">-我也是有底线的-</div>
+      </ul>
     </div>
+  </div>
 </template>
 
 <script>
@@ -51,35 +48,31 @@ export default {
   data() {
     return {
       morelist: [],
-      moreimg: [
-        {
-          moreurl: "",
-          moretitle: "invoker",
-          moreadress: "在那漆黑的无知志海上，吾乃闪耀的知识灯塔",
-          morehas: "可选座",
-          moreprice: "￥100-880"
-        },
-        {
-          moreurl: "",
-          moretitle: "invoker",
-          moreadress: "在那漆黑的无知志海上，吾乃闪耀的知识灯塔",
-          morehas: "",
-          moreprice: "￥100-880"
-        },
-        {
-          moreurl: "",
-          moretitle: "invoker",
-          moreadress: "在那漆黑的无知志海上，吾乃闪耀的知识灯塔",
-          morehas: "可选座",
-          moreprice: "￥100-880"
-        }
-      ]
+      moreimg: []
     };
   },
-    mounted() {
-      this.moreimg.forEach((item,i)=>{
-          item.moreurl = require("../../assets/moreimg1.jpg")
+  methods: {
+    moretolist() {
+      this.$router.push("/goodsList");
+    },
+    todetail(name, id) {
+      console.log(id);
+
+      this.$router.push({ path: name, query: { id: id } });
+    }
+  },
+  mounted() {
+    this.moreimg.forEach((item, i) => {
+      item.moreurl = require("../../assets/img/moreimg1.jpg");
+    });
+    this.$axios
+      .get("http://localhost:9001/admin/api/getgoodslist")
+      .then(({ data }) => {
+        console.log(data);
+
+        this.morelist = data;
       })
+      .catch(() => {});
   }
 };
 </script>
@@ -87,9 +80,9 @@ export default {
 <style>
 .more-top {
   font-weight: 700;
-  padding-left: .48rem;
+  padding-left: 0.48rem;
   margin-top: 1.2rem;
-  font-size: .45333rem;
+  font-size: 0.45333rem;
   color: #111;
 }
 .more {
@@ -114,7 +107,7 @@ export default {
   height: 1.38667rem;
   text-align: center;
   line-height: 1.38667rem;
-  font-size: .37333rem;
+  font-size: 0.37333rem;
 }
 .more-item-scroll .more-item-scroll-icon {
   color: #ddd;
@@ -135,12 +128,12 @@ export default {
   margin-bottom: 0.96rem;
   display: flex;
 }
-.more-content-list::after{
+.more-content-list::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  right: .4rem;
+  right: 0.4rem;
 }
 .more-content-imgbox {
   font-size: 0;
@@ -150,8 +143,8 @@ export default {
 .more-content-img {
   width: 2.4rem;
   height: 3.2rem;
-  border-radius: .08rem;
-  border: .013333rem solid rgba(0, 0, 0, 0.06);
+  border-radius: 0.08rem;
+  border: 0.013333rem solid rgba(0, 0, 0, 0.06);
 }
 .more-content-right {
   margin-left: 0.32rem;

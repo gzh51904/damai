@@ -1,8 +1,12 @@
 <template>
     <div class="mine">
-        <div class="mine-hd">
+        <div class="mine-hd" v-show="minelgtop">
             <div class="mine-pic"></div>
             <p class="mine-name" @click="goto('/login')">登录/注册</p>
+        </div>
+        <div class="mine-hd" v-show="!minelgtop">
+            <div class="mine-pic2"></div>
+            <p class="mine-name">麦子1ZXHX</p>
         </div>
         <div class="mine-content">
             <ul class="mine-top">
@@ -38,6 +42,7 @@
                     </div>
                 </li>
             </ul>
+            <div class="mine-lgout" v-show="!minelgtop" @click="minetoout">退出登录</div>
             <div class="mine-bottom">
                 <div class="mine-link">关于大麦</div>
                 <div class="mine-line">|</div>
@@ -99,12 +104,26 @@ export default {
             icon:"mui-icon mui-icon-help",
             title:"客服电话",
             index:5,
-        }]
+        }],
+        minelgtop:true,
     };
+  },
+  created(){
+      let minelg = localStorage.getItem("loginstatus");
+      if(minelg == "login"){
+          this.minelgtop = false;
+      }else{this.minelgtop = true}
   },
   methods:{
       goto(val){
           this.$router.push(val);
+      },
+      minetoout(){
+          localStorage.removeItem('loginstatus');
+          let minelg = localStorage.getItem("loginstatus");
+        if(minelg == "login"){
+            this.minelgtop = false;
+        }else{this.minelgtop = true}
       }
   }
 };
@@ -127,8 +146,6 @@ export default {
         max-width: 10rem;
         margin: 0 auto;
         background: #f2f3f4;
-        -webkit-box-flex: 1;
-        -webkit-flex: 1;
         flex: 1;
     }
     .mine-hd{
@@ -146,7 +163,20 @@ export default {
         background-position: top center;
         border-radius: 100%;
         border: .04rem solid #fff;
-        background: url("../../assets/mine-hd.png");
+        background: url("../../assets/img/mine-hd.png");
+        background-size: cover;
+    }
+    .mine-pic2{
+        display: block;
+        margin: 0 .33333rem 0 .32rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        background-size: 100% auto;
+        background-position: top center;
+        border-radius: 100%;
+        border: .04rem solid #fff;
+        background: url("../../assets/img/mine-lgname.png");
+        background-size: cover;
     }
     .mine-name{
     flex: 1;
@@ -229,6 +259,16 @@ export default {
         right: 0;
         font-size: .32rem;
         color: #999;
+    }
+    .mine-lgout{
+        width: 100%;
+        height: 1.17333rem;
+        line-height: 1.17333rem;
+        text-align: center;
+        border: 1px solid #e7e7e7;
+        background-color: #fff;
+        font-size: .42667rem;
+        color: #666;
     }
     .mine-bottom{
         font-size: .32rem;
